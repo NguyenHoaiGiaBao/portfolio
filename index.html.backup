@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Hoài Gia Bảo | Product Owner & IT Business Analyst</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+    
+    <!-- Section Indicators -->
+    <div class="section-indicators">
+        <div class="section-dot" data-section="hero" title="Trang chủ"></div>
+        <div class="section-dot" data-section="about" title="Giới thiệu"></div>
+        <div class="section-dot" data-section="goals" title="Mục tiêu"></div>
+        <div class="section-dot" data-section="experience" title="Kinh nghiệm"></div>
+        <div class="section-dot" data-section="skills" title="Kỹ năng"></div>
+        <div class="section-dot" data-section="education" title="Học vấn"></div>
+        <div class="section-dot" data-section="contact" title="Liên hệ"></div>
+    </div>
+
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="bg-gradient"></div>
+        <div class="floating-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+            <div class="shape shape-3"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Bảo</span>
+                <span class="logo-dot"></span>
+            </a>
+            <ul class="nav-list">
+                <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+                <li><a href="#experience" class="nav-link">Kinh nghiệm</a></li>
+                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+                <li><a href="#education" class="nav-link">Học vấn</a></li>
+                <li><a href="#contact" class="nav-link nav-cta">Liên hệ</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-border"></div>
+                    <img src="./img/bao2.jpg" alt="Nguyễn Hoài Gia Bảo" class="profile-avatar">
+                    <div class="image-glow"></div>
+                    <div class="avatar-info">
+                        <div class="avatar-name">Nguyễn Hoài Gia Bảo</div>
+                        <div class="avatar-status">Đang mở cơ hội mới</div>
+                        <div class="avatar-socials">
+                            <a href="mailto:nguyenhoaigiabao.bt@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-content">
+                <div class="hero-greeting">Xin chào, tôi là</div>
+                <h1 class="hero-name">
+                    Nguyễn Hoài Gia Bảo,<br>
+                    <span class="highlight">Product Owner | </span>  <br>Junior IT Business Analyst
+                </h1>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Năm kinh nghiệm</span>
+                    </div>
+                    <!-- <div class="stat-item">
+                        <span class="stat-value">0</span>
+                        <span class="stat-label">Dự án đã triển khai</span>
+                    </div> -->
+                    <div class="stat-item">
+                        <span class="stat-value">50+</span>
+                        <span class="stat-label">Người dùng nội bộ</span>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">Liên hệ</a>
+                    <a href="#experience" class="btn btn-outline">Kinh nghiệm</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Giới thiệu</span>
+                <h2 class="section-title">Về <span class="accent">bản thân</span></h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-lead">
+                        Tôi là một <strong>Product Owner</strong> với nền tảng kỹ thuật phần mềm vững chắc.
+                    </p>
+                    <p>
+                        Xuất thân từ Kỹ thuật Phần mềm và đã có kinh nghiệm với vai trò BA và Leader Team IT, tôi đã trực tiếp đảm nhiệm các trọng trách của một Product Owner: từ việc định hình luồng sản phẩm, quản lý Backlog, đến ra quyết định đánh đổi (Trade-off) để bảo vệ tiến độ Release.
+                    </p>
+                    <p>
+                        Điểm mạnh cốt lõi của tôi là tư duy hệ thống và "gu" thẩm mỹ hiện đại. Tôi có khả năng phác thảo User Flow cực kỳ logic, ứng dụng AI để tối ưu hóa quá trình phân tích.
+                    </p>
+                </div>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h4>Quản lý Sản phẩm & Backlog</h4>
+                            <p>Xây dựng và ưu tiên Product Backlog, định hình Roadmap rõ ràng để tối đa hóa giá trị kinh doanh</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h4>Tư duy Người dùng & Stakeholder</h4>
+                            <p>Thu thập & phân tích yêu cầu, cân bằng nhu cầu người dùng với mục tiêu kinh doanh, giao tiếp hiệu quả với các bên liên quan</p>
+                        </div>
+                    </div>
+                    <div class="highlight-item">
+                        <div class="highlight-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="highlight-content">
+                            <h4>Trade-off & Delivery</h4>
+                            <p>Đưa ra quyết định trade-off hợp lý, đảm bảo tiến độ Release đúng hạn và chất lượng sản phẩm</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals" class="goals-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Mục tiêu</span>
+                <h2 class="section-title">Định hướng <span class="accent">tương lai</span></h2>
+            </div>
+            <div class="goals-timeline">
+                <div class="timeline-line"></div>
+                <div class="goal-card goal-short">
+                    <div class="goal-marker">
+                        <span>1-2</span>
+                        <small>năm</small>
+                    </div>
+                    <div class="goal-content">
+                        <div class="goal-icon">
+                            <i class="fas fa-target"></i>
+                        </div>
+                        <h3>Ngắn hạn</h3>
+                        <p>Chính thức đảm nhiệm vai trò Product Owner tại môi trường Product-focused. Làm chủ việc tối ưu hóa luồng trải nghiệm (UX) và ứng dụng dữ liệu vào việc ra quyết định sản phẩm.</p>
+                        <div class="goal-tags">
+                            <span class="tag">Product Owner</span>
+                            <span class="tag">UX Optimization</span>
+                            <span class="tag">Data-Driven</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="goal-card goal-long">
+                    <div class="goal-marker">
+                        <span>3-5</span>
+                        <small>năm</small>
+                    </div>
+                    <div class="goal-content">
+                        <div class="goal-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Dài hạn</h3>
+                        <p>Phát triển thành Senior PO / Product Manager, dẫn dắt chiến lược sản phẩm số tạo ra lợi thế cạnh tranh và tác động trực tiếp đến doanh thu của doanh nghiệp.</p>
+                        <div class="goal-tags">
+                            <span class="tag">Senior PO</span>
+                            <span class="tag">Product Manager</span>
+                            <span class="tag">Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kinh nghiệm</span>
+                <h2 class="section-title">Dự án đã <span class="accent">thực hiện</span></h2>
+            </div>
+            
+            <div class="experience-main-card">
+                <div class="experience-header">
+                    <div class="company-logo">
+                        <span>SDTC</span>
+                    </div>
+                    <div class="company-info">
+                        <h3>Công ty TNHH Công nghệ Rồng Biển</h3>
+                        <div class="position-wrapper">
+                            <span class="position">Lead IT Business Analyst / IT Team Lead</span>
+                            <span class="duration">
+                                <i class="far fa-calendar-alt"></i>
+                                07/2025 – 04/2026
+                            </span>
+                        </div>
+                    </div>
+                    <div class="team-badges">
+                        <div class="team-badge">
+                            <i class="fas fa-users"></i>
+                            <span>4 nhân sự IT</span>
+                        </div>
+                        <div class="team-badge">
+                            <i class="fas fa-building"></i>
+                            <span>~50 users nội bộ</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="projects-container">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-number">01</div>
+                            <h4>Hệ thống Quản lý Dự án</h4>
+                            <span class="project-type">Internal PM Tool</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-item">
+                                <span class="item-label">Phân tích & Thiết kế</span>
+                                <p>Chuyển hóa bài toán quản trị từ Giám đốc thành nền tảng PM tập trung. Thiết kế luồng giao việc và theo dõi tiến độ xuyên suốt.</p>
+                            </div>
+                            <div class="project-item">
+                                <span class="item-label">Thực thi</span>
+                                <p>Đóng gói các tính năng cốt lõi giúp tổ chức có một "Single Source of Truth", loại bỏ hoàn toàn tình trạng trao đổi công việc phân mảnh.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card featured">
+                        <div class="project-header">
+                            <div class="project-number">02</div>
+                            <h4>Hệ thống Quản trị Nhân sự</h4>
+                            <span class="project-type">SDTC HRM Desktop App</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-item">
+                                <span class="item-label">Định hướng UX & Logic</span>
+                                <p>Trực tiếp định hướng xây dựng Native Desktop App với Spatial UI (Dark Mode). Thiết kế luồng Phê duyệt động (Dynamic Approval).</p>
+                            </div>
+                            <div class="project-item">
+                                <span class="item-label">Chiến lược Release</span>
+                                <p>Chủ động thương lượng đẩy phân hệ Payroll sang Phase 2. Tập trung Go-live MVP Phase 1 (Chấm công GPS + 2FA).</p>
+                            </div>
+                            <div class="project-metric">
+                                <div class="metric-value">-20%</div>
+                                <div class="metric-label">Tỷ lệ Rework</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-number">03</div>
+                            <h4>Hệ thống Đo lường Số liệu MKT</h4>
+                            <span class="project-type">Ads Analytics</span>
+                        </div>
+                        <div class="project-body">
+                            <div class="project-item">
+                                <span class="item-label">Nghiên cứu & Cầu nối</span>
+                                <p>Phối hợp cùng Trưởng phòng Marketing số hóa bài toán theo dõi ROI của các chiến dịch Affiliate (TikTok, Facebook).</p>
+                            </div>
+                            <div class="project-item">
+                                <span class="item-label">Tư duy Thực dụng</span>
+                                <p>Ưu tiên luồng nhập liệu thủ công cho Phase 1 để hệ thống kịp Go-live thu thập số liệu ngay lập tức.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Kỹ năng</span>
+                <h2 class="section-title">Chuyên môn & <span class="accent">Công cụ</span></h2>
+            </div>
+            
+            <div class="skills-wrapper">
+                <div class="skills-bars">
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fab fa-jira"></i>
+                                <span class="skill-name">Jira / Confluence</span>
+                            </div>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fab fa-figma"></i>
+                                <span class="skill-name">Figma / Balsamiq</span>
+                            </div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="90"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fas fa-project-diagram"></i>
+                                <span class="skill-name">Draw.io / Visio</span>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="85"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fas fa-database"></i>
+                                <span class="skill-name">SQL</span>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="75"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fas fa-code"></i>
+                                <span class="skill-name">Postman</span>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="80"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <div class="skill-info">
+                                <i class="fas fa-file-alt"></i>
+                                <span class="skill-name">Tài liệu (BRD, FRS)</span>
+                            </div>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" data-width="95"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-chess"></i>
+                        </div>
+                        <h4>Quản lý Sản phẩm & Backlog</h4>
+                        <p>Xây dựng và ưu tiên Product Backlog, định hình Roadmap rõ ràng để tối đa hóa giá trị kinh doanh</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h4>Tư duy Người dùng & Stakeholder</h4>
+                        <p>Thu thập & phân tích yêu cầu, cân bằng nhu cầu người dùng với mục tiêu kinh doanh, giao tiếp hiệu quả với các bên liên quan</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <h4>Trade-off & Delivery</h4>
+                        <p>Đưa ra quyết định trade-off hợp lý, đảm bảo tiến độ Release đúng hạn và chất lượng sản phẩm</p>
+                    </div>
+                    <div class="expertise-card">
+                        <div class="expertise-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI & Tools</h4>
+                        <p>Prompting (ChatGPT/Claude) để research/viết PRD; Figma, Draw.io, Jira</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Học vấn</span>
+                <h2 class="section-title">Trình độ <span class="accent">học thuật</span></h2>
+            </div>
+            <div class="education-card">
+                <div class="education-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="education-content">
+                    <div class="education-main">
+                        <h3>Đại học Gia Định</h3>
+                        <p class="degree">Cử nhân Kỹ thuật Phần mềm (Software Engineering)</p>
+                        <p class="year">
+                            <i class="far fa-calendar"></i>
+                            2022 – 2025
+                        </p>
+                    </div>
+                    <div class="education-note">
+                        <i class="fas fa-quote-left"></i>
+                        <p>Nền tảng hệ thống vững chắc — Lợi thế tuyệt đối khi giao tiếp với team Tech và rạch ròi giữa giới hạn kỹ thuật và trải nghiệm UX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Liên hệ</span>
+                <h2 class="section-title">Kết nối <span class="accent">ngay</span></h2>
+            </div>
+            <div class="contact-intro">
+                <p>Sẵn sàng cho cơ hội mới? Hãy liên hệ với tôi!</p>
+            </div>
+            <div class="contact-grid">
+                <a href="mailto:nguyenhoaigiabao.bt@gmail.com" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">nguyenhoaigiabao.bt@gmail.com</span>
+                    </div>
+                </a>
+                <a href="tel:0387227939" class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Điện thoại</span>
+                        <span class="contact-value">0387 227 939</span>
+                    </div>
+                </a>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="contact-info">
+                        <span class="contact-label">Địa điểm</span>
+                        <span class="contact-value">TP. Hồ Chí Minh, Việt Nam</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="footer-logo">Bảo<span>.</span></span>
+                    <p>Product Owner & IT Business Analyst</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">Giới thiệu</a>
+                    <a href="#experience">Kinh nghiệm</a>
+                    <a href="#skills">Kỹ năng</a>
+                    <a href="#contact">Liên hệ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p> 2026 Nguyễn Hoài Gia Bảo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Animations Script -->
+    <script src="js/animations.js"></script>
+</body>
+</html>
