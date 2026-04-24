@@ -64,12 +64,10 @@ section {
 
 /* ===== SCROLL & HOVER EFFECTS - OPTIMIZED ===== */
 
-/* Simple Reveal Animation - GPU Accelerated */
+/* Content visible by default - no scroll reveal needed */
 .reveal-hidden {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-    will-change: transform, opacity;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .revealed {
@@ -77,15 +75,14 @@ section {
     transform: translateY(0);
 }
 
-/* Card Reveal - Simple */
+/* Card Reveal - Disabled, visible by default */
 .goal-card.reveal-hidden,
 .project-card.reveal-hidden,
 .expertise-card.reveal-hidden,
 .skill-item.reveal-hidden,
 .highlight-item.reveal-hidden {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all 0.6s ease-out;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .goal-card.revealed,
@@ -110,11 +107,10 @@ section {
 .projects-container .project-card:nth-child(2) { transition-delay: 150ms; }
 .projects-container .project-card:nth-child(3) { transition-delay: 300ms; }
 
-/* Slide In Variants - Dramatic */
+/* Slide In Variants - Disabled, visible by default */
 .slide-in-left {
-    opacity: 0;
-    transform: translateX(-120px) rotateY(-15deg);
-    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
 }
 
 .slide-in-left.revealed {
@@ -123,9 +119,8 @@ section {
 }
 
 .slide-in-right {
-    opacity: 0;
-    transform: translateX(120px) rotateY(15deg);
-    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: translateX(0) rotateY(0);
 }
 
 .slide-in-right.revealed {
@@ -133,11 +128,10 @@ section {
     transform: translateX(0) rotateY(0);
 }
 
-/* Scale In - Pop effect */
+/* Scale In - Disabled, visible by default */
 .scale-in {
-    opacity: 0;
-    transform: scale(0.7);
-    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .scale-in.revealed {
@@ -377,11 +371,10 @@ section.in-view::before {
     }
 }
 
-/* Blur In Effect */
+/* Blur In Effect - Disabled, visible by default */
 .blur-in {
-    filter: blur(10px);
-    opacity: 0;
-    transition: filter 0.6s ease, opacity 0.6s ease;
+    filter: blur(0);
+    opacity: 1;
 }
 
 .blur-in.revealed {

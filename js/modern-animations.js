@@ -101,41 +101,16 @@ document.addEventListener('DOMContentLoaded', () => {
         header.classList.add('mask-reveal');
     });
     
-    // ===== MODERN REVEAL ANIMATIONS =====
+    // ===== MODERN REVEAL ANIMATIONS - DISABLED =====
+    // Content visible immediately, no scroll animations
     const modernRevealElements = document.querySelectorAll(
         '.goal-card, .project-card, .skill-item, .highlight-item'
     );
     
-    const modernObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const element = entry.target;
-                
-                // Add modern cascade effect
-                element.classList.add('cascade-item');
-                
-                // Add stagger delay based on element index
-                const parent = element.parentElement;
-                if (parent) {
-                    const siblings = Array.from(parent.children);
-                    const index = siblings.indexOf(element);
-                    element.style.transitionDelay = `${index * 0.1}s`;
-                }
-                
-                setTimeout(() => {
-                    element.classList.add('revealed');
-                }, 50);
-                
-                modernObserver.unobserve(element);
-            }
-        });
-    }, {
-        threshold: 0.2,
-        rootMargin: '0px 0px -50px 0px'
-    });
-    
     modernRevealElements.forEach(el => {
-        modernObserver.observe(el);
+        el.classList.add('revealed');
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
     });
     
     // ===== NEON GLOW FOR FEATURED PROJECT =====
@@ -181,21 +156,14 @@ document.addEventListener('DOMContentLoaded', () => {
         experienceCard.classList.add('scan-line');
     }
     
-    // ===== MASK REVEAL OBSERVER =====
+    // ===== MASK REVEAL OBSERVER - DISABLED =====
+    // Show all mask elements immediately
     const maskElements = document.querySelectorAll('.mask-reveal, .clip-reveal');
     
-    const maskObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                maskObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.3
+    maskElements.forEach(el => {
+        el.classList.add('revealed');
+        el.style.opacity = '1';
     });
-    
-    maskElements.forEach(el => maskObserver.observe(el));
     
     // ===== PARTICLE TRAIL FOR NAV LINKS =====
     const navLinks = document.querySelectorAll('.nav-link');

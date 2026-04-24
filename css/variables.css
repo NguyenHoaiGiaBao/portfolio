@@ -1,10 +1,10 @@
 /* ===== DESIGN TOKENS / VARIABLES ===== */
 :root {
-    /* Colors - Lime Green Theme */
-    --color-primary: #a3e635;
-    --color-primary-light: #bef264;
-    --color-primary-dark: #84cc16;
-    --color-primary-darker: #65a30d;
+    /* Colors - Indigo Theme */
+    --color-primary: #6366f1;
+    --color-primary-light: #818cf8;
+    --color-primary-dark: #4f46e5;
+    --color-primary-darker: #3730a3;
     
     /* Background Colors */
     --bg-primary: #0a0a0a;

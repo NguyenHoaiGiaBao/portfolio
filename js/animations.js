@@ -27,37 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== SCROLL REVEAL =====
+    // ===== SCROLL REVEAL - DISABLED: Content visible immediately =====
+    // All content is now visible without scroll animation for better UX
     const revealElements = document.querySelectorAll(
         '.section-header, .goal-card, .project-card, .skill-item, .expertise-card, .highlight-item, .contact-card, .education-card'
     );
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                
-                // Stagger effect for cards in same container
-                const parent = entry.target.parentElement;
-                if (parent && parent.children.length > 1) {
-                    const siblings = Array.from(parent.querySelectorAll('.reveal-hidden, .revealed'));
-                    const index = siblings.indexOf(entry.target);
-                    if (index > 0) {
-                        entry.target.style.transitionDelay = `${index * 200}ms`;
-                    }
-                }
-                
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    });
-
+    // Make all elements visible immediately
     revealElements.forEach(el => {
-        el.classList.add('reveal-hidden');
-        revealObserver.observe(el);
+        el.classList.add('revealed');
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
     });
 
     // ===== SMOOTH SCROLL FOR NAV LINKS =====
@@ -151,7 +131,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ===== SECTION ACTIVE INDICATOR & TRANSITIONS =====
+    // ===== SECTION ACTIVE INDICATOR =====
+    // Only updates active nav/dot indicators, no reveal animations
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     let currentSection = null;
@@ -161,9 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const section = entry.target;
             
             if (entry.isIntersecting) {
-                // Add in-view class for animations
                 section.classList.add('in-view');
-                section.classList.remove('incoming');
                 
                 // Update nav active state
                 const id = section.getAttribute('id');
@@ -183,22 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         dot.classList.add('active');
                     }
                 });
-                
-                // Trigger reveal for children
-                const revealElements = section.querySelectorAll('.reveal-hidden');
-                revealElements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('revealed');
-                    }, index * 100);
-                });
             } else {
                 section.classList.remove('in-view');
-                
-                // Check if section is above or below viewport
-                const rect = section.getBoundingClientRect();
-                if (rect.top > 0) {
-                    section.classList.add('incoming');
-                }
             }
         });
     }, { 

@@ -14,37 +14,17 @@
     transform: translateY(0) rotateX(0);
 }
 
-/* Line Mask Reveal */
+/* Line Mask Reveal - Disabled, visible by default */
 .mask-reveal {
     position: relative;
     overflow: hidden;
 }
 
 .mask-reveal::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-primary);
-    transform: scaleX(1);
-    transform-origin: right;
-    transition: transform 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 2;
-}
-
-.mask-reveal.revealed::before {
-    transform: scaleX(0);
+    display: none;
 }
 
 .mask-reveal > * {
-    opacity: 0;
-    transform: translateX(-30px);
-    transition: all 0.5s ease 0.4s;
-}
-
-.mask-reveal.revealed > * {
     opacity: 1;
     transform: translateX(0);
 }
@@ -202,11 +182,10 @@
     height: 300px;
 }
 
-/* Stagger Cascade */
+/* Stagger Cascade - Disabled, visible by default */
 .cascade-item {
-    opacity: 0;
-    transform: translateY(60px) scale(0.9);
-    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 .cascade-item.revealed {
@@ -241,10 +220,9 @@
     animation: gradient-shift 3s ease infinite;
 }
 
-/* Clip Path Reveal */
+/* Clip Path Reveal - Disabled, visible by default */
 .clip-reveal {
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-    transition: clip-path 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 .clip-reveal.revealed {
