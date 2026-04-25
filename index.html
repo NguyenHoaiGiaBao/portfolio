@@ -34,16 +34,46 @@
     </script>
     
     <style>
-        * {
-            scroll-behavior: smooth;
+        /* CSS Reset & Base */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: #000000;
             color: #ffffff;
             overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
         }
         
         /* Aurora Background Effects */
@@ -98,9 +128,8 @@
         
         /* Spatial Glass Cards */
         .spatial-card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
+            background: rgba(20, 25, 35, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 24px;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -108,6 +137,16 @@
             overflow: hidden;
             transform-style: preserve-3d;
             perspective: 1000px;
+            /* Glassmorphism with fallback */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        
+        /* Firefox fallback - no backdrop-filter support */
+        @supports not (backdrop-filter: blur(20px)) {
+            .spatial-card {
+                background: rgba(15, 20, 30, 0.95);
+            }
         }
         
         .spatial-card::before {
@@ -130,12 +169,18 @@
         }
         
         .spatial-card:hover {
-            transform: translateY(-12px) rotateX(2deg) rotateY(-2deg);
-            border-color: rgba(0, 123, 255, 0.25);
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(0, 123, 255, 0.4);
             box-shadow: 
-                0 30px 80px -20px rgba(0, 123, 255, 0.2),
-                0 0 60px -10px rgba(0, 123, 255, 0.1),
-                inset 0 1px 0 rgba(255,255,255,0.1);
+                0 25px 50px -12px rgba(0, 123, 255, 0.25),
+                0 0 0 1px rgba(0, 123, 255, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        
+        @media (hover: hover) and (pointer: fine) {
+            .spatial-card:hover {
+                transform: translateY(-12px) rotateX(2deg) rotateY(-2deg);
+            }
         }
         
         .spatial-card:hover::before {
@@ -172,6 +217,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: #007bff;
+        }
+        
+        @supports (-webkit-background-clip: text) or (background-clip: text) {
+            .gradient-blue {
+                color: transparent;
+            }
         }
         
         .gradient-orange {
@@ -179,6 +231,13 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            color: #ff6b35;
+        }
+        
+        @supports (-webkit-background-clip: text) or (background-clip: text) {
+            .gradient-orange {
+                color: transparent;
+            }
         }
         
         /* Skill Pills */
@@ -252,25 +311,46 @@
         
         /* Contact Icons */
         .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: rgba(255,255,255,0.03);
             border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
             transition: all 0.4s ease;
         }
         
         .contact-icon:hover {
             background: rgba(0,123,255,0.1);
             border-color: rgba(0,123,255,0.3);
-            transform: translateY(-4px) scale(1.1);
+            transform: translateY(-4px) scale(1.05);
             box-shadow: 0 10px 30px rgba(0,123,255,0.2);
+        }
+        
+        .contact-icon:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid rgba(0, 123, 255, 0.6);
+            outline-offset: 2px;
         }
         
         /* CTA Button */
         .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
             border: none;
+            border-radius: 9999px;
             position: relative;
             overflow: hidden;
             transition: all 0.4s ease;
+            font-weight: 600;
+            letter-spacing: 0.01em;
         }
         
         .cta-button::before {
@@ -292,8 +372,14 @@
         }
         
         .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(0,123,255,0.4);
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(0,123,255,0.4),
+                0 0 0 1px rgba(255,255,255,0.1) inset;
+        }
+        
+        .cta-button:active {
+            transform: translateY(0) scale(0.98);
         }
         
         /* Subtle grain texture overlay */
@@ -306,18 +392,63 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
         
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .aurora-blob {
+                animation: none;
+            }
+        }
+        
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .spatial-card:hover {
-                transform: translateY(-8px);
+            .spatial-card {
+                border-radius: 20px;
             }
+            
+            .spatial-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+            
             .process-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            header {
+                min-height: auto;
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            
+            nav {
+                padding: 14px 20px;
+            }
+            
+            nav .flex.space-x-8 {
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .spatial-card {
+                padding: 24px !important;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
 </head>
-<body class="relative min-h-screen">
+<body class="relative min-h-screen bg-black">
     <!-- Aurora Background -->
     <div class="aurora-container">
         <div class="aurora-blob aurora-blue-1"></div>
@@ -328,24 +459,25 @@
     <!-- Grain Overlay -->
     <div class="grain-overlay"></div>
     
+    <!-- Navigation (Fixed) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-20 py-5 bg-black/60 backdrop-blur-xl border-b border-white/5">
+        <div class="font-display font-bold text-2xl tracking-tight">
+            <span class="text-white">Bảo</span>
+            <span class="text-primary">.</span>
+        </div>
+        <div class="flex items-center space-x-8">
+            <a href="#showcase" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Home</a>
+            <a href="#contact" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Contact</a>
+            <a href="#" class="text-sm text-white/60 hover:text-white transition-colors duration-200">CV</a>
+        </div>
+    </nav>
+    
     <!-- Main Content -->
     <div class="relative z-10">
         
         <!-- Header & Hero -->
-        <header class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 py-12">
+        <header class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-12">
             <div class="max-w-7xl mx-auto w-full">
-                <!-- Navigation -->
-                <nav class="flex justify-between items-center mb-20">
-                    <div class="font-display font-bold text-2xl tracking-tight">
-                        <span class="text-white">Bảo</span>
-                        <span class="text-primary">.</span>
-                    </div>
-                    <div class="flex items-center space-x-8">
-                        <a href="#showcase" class="text-sm text-white/60 hover:text-white transition-colors">Home</a>
-                        <a href="#contact" class="text-sm text-white/60 hover:text-white transition-colors">Contact</a>
-                        <a href="#" class="text-sm text-white/60 hover:text-white transition-colors">CV</a>
-                    </div>
-                </nav>
                 
                 <!-- Hero Content -->
                 <div class="grid md:grid-cols-2 gap-12 items-center">
