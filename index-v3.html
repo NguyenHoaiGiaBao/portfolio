@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Hoài Gia Bảo | Acting Product Owner</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#007bff',
+                        'primary-glow': 'rgba(0,123,255,0.5)',
+                        accent: '#ff6b35',
+                        'accent-glow': 'rgba(255,107,53,0.4)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* CSS Reset & Base */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        /* Aurora Background Effects */
+        .aurora-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        .aurora-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.35;
+            animation: aurora-drift 25s infinite ease-in-out;
+        }
+        
+        .aurora-blue-1 {
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(0,123,255,0.4) 0%, transparent 70%);
+            top: -300px;
+            left: -200px;
+            animation-delay: 0s;
+        }
+        
+        .aurora-blue-2 {
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(0,212,255,0.3) 0%, transparent 70%);
+            bottom: -200px;
+            right: -100px;
+            animation-delay: -8s;
+        }
+        
+        .aurora-orange {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,107,53,0.25) 0%, transparent 70%);
+            top: 40%;
+            left: 60%;
+            animation-delay: -16s;
+        }
+        
+        @keyframes aurora-drift {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            33% { transform: translate(40px, -40px) scale(1.1) rotate(5deg); }
+            66% { transform: translate(-30px, 30px) scale(0.95) rotate(-3deg); }
+        }
+        
+        /* Spatial Glass Cards */
+        .spatial-card {
+            background: rgba(20, 25, 35, 0.6);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            /* Glassmorphism with fallback */
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+        }
+        
+        /* Firefox fallback - no backdrop-filter support */
+        @supports not (backdrop-filter: blur(20px)) {
+            .spatial-card {
+                background: rgba(15, 20, 30, 0.95);
+            }
+        }
+        
+        .spatial-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 24px;
+            padding: 1.5px;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.15) 0%, 
+                rgba(255,255,255,0.05) 50%,
+                rgba(0,123,255,0.1) 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0.6;
+            transition: opacity 0.4s ease;
+        }
+        
+        .spatial-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(0, 123, 255, 0.4);
+            box-shadow: 
+                0 25px 50px -12px rgba(0, 123, 255, 0.25),
+                0 0 0 1px rgba(0, 123, 255, 0.1),
+                inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+        
+        @media (hover: hover) and (pointer: fine) {
+            .spatial-card:hover {
+                transform: translateY(-12px) rotateX(2deg) rotateY(-2deg);
+            }
+        }
+        
+        .spatial-card:hover::before {
+            opacity: 1;
+            background: linear-gradient(135deg, 
+                rgba(0,123,255,0.4) 0%, 
+                rgba(255,255,255,0.1) 50%,
+                rgba(0,212,255,0.2) 100%);
+        }
+        
+        /* Glass Sheen Effect */
+        .glass-sheen {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.08), 
+                transparent);
+            transition: left 0.8s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .spatial-card:hover .glass-sheen {
+            left: 150%;
+        }
+        
+        /* Gradient Text */
+        .gradient-blue {
+            background: linear-gradient(135deg, #007bff 0%, #00d4ff 50%, #6366f1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #007bff;
+        }
+        
+        @supports (-webkit-background-clip: text) or (background-clip: text) {
+            .gradient-blue {
+                color: transparent;
+            }
+        }
+        
+        .gradient-orange {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff9f43 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: #ff6b35;
+        }
+        
+        @supports (-webkit-background-clip: text) or (background-clip: text) {
+            .gradient-orange {
+                color: transparent;
+            }
+        }
+        
+        /* Skill Pills */
+        .skill-pill {
+            background: rgba(0, 123, 255, 0.08);
+            border: 1px solid rgba(0, 123, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .skill-pill:hover {
+            background: rgba(0, 123, 255, 0.15);
+            border-color: rgba(0, 123, 255, 0.4);
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.2);
+        }
+        
+        /* Typing Effect */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+            color: #007bff;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Process Flow Arrows */
+        .flow-arrow {
+            color: rgba(0, 123, 255, 0.5);
+            animation: pulse-arrow 2s infinite;
+        }
+        
+        @keyframes pulse-arrow {
+            0%, 100% { opacity: 0.5; transform: translateX(0); }
+            50% { opacity: 1; transform: translateX(4px); }
+        }
+        
+        /* Evolution Connector */
+        .evolution-line {
+            width: 2px;
+            height: 30px;
+            background: linear-gradient(to bottom, 
+                rgba(255,255,255,0.1), 
+                rgba(0,123,255,0.5),
+                rgba(255,255,255,0.1));
+            margin: 4px auto;
+        }
+        
+        /* Process Grid */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+        
+        .process-box {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .process-box:hover {
+            background: rgba(0,123,255,0.05);
+            border-color: rgba(0,123,255,0.2);
+            transform: translateY(-4px);
+        }
+        
+        /* Contact Icons */
+        .contact-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            transition: all 0.4s ease;
+        }
+        
+        .contact-icon:hover {
+            background: rgba(0,123,255,0.1);
+            border-color: rgba(0,123,255,0.3);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,123,255,0.2);
+        }
+        
+        .contact-icon:active {
+            transform: translateY(-2px) scale(1.02);
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus-visible,
+        button:focus-visible {
+            outline: 2px solid rgba(0, 123, 255, 0.6);
+            outline-offset: 2px;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            border: none;
+            border-radius: 9999px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.3), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 
+                0 15px 40px rgba(0,123,255,0.4),
+                0 0 0 1px rgba(255,255,255,0.1) inset;
+        }
+        
+        .cta-button:active {
+            transform: translateY(0) scale(0.98);
+        }
+        
+        /* Subtle grain texture overlay */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        
+        /* Reduced motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .aurora-blob {
+                animation: none;
+            }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .spatial-card {
+                border-radius: 20px;
+            }
+            
+            .spatial-card:hover {
+                transform: translateY(-4px) scale(1.01);
+            }
+            
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                min-height: auto;
+                padding-top: 100px;
+                padding-bottom: 60px;
+            }
+            
+            nav {
+                padding: 14px 20px;
+            }
+            
+            nav .flex.space-x-8 {
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .spatial-card {
+                padding: 24px !important;
+            }
+            
+            .cta-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="relative min-h-screen bg-black">
+    <!-- Aurora Background -->
+    <div class="aurora-container">
+        <div class="aurora-blob aurora-blue-1"></div>
+        <div class="aurora-blob aurora-blue-2"></div>
+        <div class="aurora-blob aurora-orange"></div>
+    </div>
+    
+    <!-- Grain Overlay -->
+    <div class="grain-overlay"></div>
+    
+    <!-- Navigation (Fixed) -->
+    <nav class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 md:px-12 lg:px-20 py-5 bg-black/60 backdrop-blur-xl border-b border-white/5">
+        <div class="font-display font-bold text-2xl tracking-tight">
+            <span class="text-white">Bảo</span>
+            <span class="text-primary">.</span>
+        </div>
+        <div class="flex items-center space-x-8">
+            <a href="#showcase" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Home</a>
+            <a href="#contact" class="text-sm text-white/60 hover:text-white transition-colors duration-200">Contact</a>
+            <a href="#" class="text-sm text-white/60 hover:text-white transition-colors duration-200">CV</a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="relative z-10">
+        
+        <!-- Header & Hero -->
+        <header class="min-h-screen flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-12">
+            <div class="max-w-7xl mx-auto w-full">
+                
+                <!-- Hero Content -->
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-primary text-sm font-medium tracking-widest uppercase mb-4">Product Owner</p>
+                        <h1 class="font-display font-bold text-5xl md:text-7xl lg:text-8xl text-white leading-none mb-6">
+                            Nguyễn Hoài<br>Gia Bảo
+                        </h1>
+                        <div class="text-xl md:text-2xl text-white/80 mb-2 h-8">
+                            <span class="typing-cursor" id="typing-text"></span>
+                        </div>
+                        <p class="text-white/50 text-sm mt-4">
+                            Acting Product Owner tại Sea Dragon Technology
+                        </p>
+                    </div>
+                    
+                    <div class="flex flex-col items-start md:items-end space-y-6">
+                        <p class="text-white/60 text-sm max-w-xs text-left md:text-right leading-relaxed">
+                            1 năm kinh nghiệm trong vai trò IT Team Lead & Acting PO, 
+                            dẫn dắt đội ngũ 4 người và quản lý tầm nhìn sản phẩm HRM 2.0
+                        </p>
+                        <a href="#contact" class="cta-button px-8 py-4 rounded-full text-white font-medium text-sm flex items-center space-x-2">
+                            <span>Contact Me</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Key Spotlight Showcase (Bento Band) -->
+        <section id="showcase" class="px-6 md:px-12 lg:px-20 py-20">
+            <div class="max-w-7xl mx-auto">
+                <!-- Section Title -->
+                <div class="mb-12">
+                    <h2 class="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+                        Hành Trình Sự Nghiệp<br>
+                        <span class="gradient-blue">& Tư Duy Sản Phẩm</span>
+                    </h2>
+                    <p class="text-white/40 text-sm">Mid 2025 - Present | Sea Dragon Technology Co., Ltd</p>
+                </div>
+                
+                <!-- Bento Grid Band -->
+                <div class="grid md:grid-cols-2 gap-6">
+                    
+                    <!-- Card 1: Hành trình nội bộ (Career Evolution) -->
+                    <div class="spatial-card p-8">
+                        <div class="glass-sheen"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
+                                    <i class="fas fa-chart-line text-primary"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-white">Hành trình nội bộ</h3>
+                            </div>
+                            
+                            <!-- Evolution Timeline -->
+                            <div class="space-y-2 mb-8">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2 h-2 rounded-full bg-white/30"></div>
+                                    <span class="text-white/50 text-sm">IT Intern</span>
+                                </div>
+                                <div class="evolution-line"></div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-2.5 h-2.5 rounded-full bg-primary/60"></div>
+                                    <span class="text-white/70 text-sm">Lead IT Business Analyst</span>
+                                </div>
+                                <div class="evolution-line"></div>
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-3 h-3 rounded-full bg-primary shadow-lg shadow-primary/50"></div>
+                                    <span class="text-white font-semibold text-sm gradient-blue">Acting Product Owner</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Key Achievements -->
+                            <div class="space-y-3 pt-4 border-t border-white/5">
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-users text-primary/60 text-xs mt-1"></i>
+                                    <span class="text-white/60 text-sm">Lead team of 4 developers & analysts</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-rocket text-primary/60 text-xs mt-1"></i>
+                                    <span class="text-white/60 text-sm">HRM 2.0 Vision & Backlog Management</span>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <i class="fas fa-arrow-trend-down text-primary/60 text-xs mt-1"></i>
+                                    <span class="text-white/60 text-sm"><span class="text-primary font-medium">-20%</span> rework rate through clear User Stories</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2: Quy trình Thực chiến (Tactical Process) -->
+                    <div class="spatial-card p-8">
+                        <div class="glass-sheen"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center space-x-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center">
+                                    <i class="fas fa-chess-knight text-accent"></i>
+                                </div>
+                                <h3 class="font-display font-bold text-xl text-white">Quy trình Thực chiến</h3>
+                            </div>
+                            
+                            <!-- 4 Process Squares with Arrows -->
+                            <div class="relative">
+                                <div class="process-grid">
+                                    <!-- Box 1: Discovery -->
+                                    <div class="process-box">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                                            <i class="fas fa-search text-primary text-sm"></i>
+                                        </div>
+                                        <h4 class="text-white font-medium text-sm mb-1">Discovery</h4>
+                                        <p class="text-white/40 text-xs">Phân tích nhu cầu & Pain points</p>
+                                    </div>
+                                    
+                                    <!-- Box 2: Backlog -->
+                                    <div class="process-box">
+                                        <div class="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center mb-3">
+                                            <i class="fas fa-list-ol text-primary text-sm"></i>
+                                        </div>
+                                        <h4 class="text-white font-medium text-sm mb-1">Backlog & Ưu tiên</h4>
+                                        <p class="text-white/40 text-xs">User Stories & Acceptance Criteria</p>
+                                    </div>
+                                    
+                                    <!-- Box 3: Roadmap -->
+                                    <div class="process-box">
+                                        <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center mb-3">
+                                            <i class="fas fa-map-marked-alt text-accent text-sm"></i>
+                                        </div>
+                                        <h4 class="text-white font-medium text-sm mb-1">Roadmap & Tầm Nhìn</h4>
+                                        <p class="text-white/40 text-xs">Chiến lược dài hạn & Milestones</p>
+                                    </div>
+                                    
+                                    <!-- Box 4: Data-Driven -->
+                                    <div class="process-box">
+                                        <div class="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center mb-3">
+                                            <i class="fas fa-chart-bar text-accent text-sm"></i>
+                                        </div>
+                                        <h4 class="text-white font-medium text-sm mb-1">Data-Driven Decisions</h4>
+                                        <p class="text-white/40 text-xs">Phân tích & Đo lường hiệu quả</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Flow Indicators -->
+                                <div class="flex justify-center items-center mt-4 space-x-4">
+                                    <span class="text-white/30 text-xs">Quy trình liên kết</span>
+                                    <div class="flex space-x-1">
+                                        <i class="fas fa-chevron-right flow-arrow text-xs"></i>
+                                        <i class="fas fa-chevron-right flow-arrow text-xs" style="animation-delay: 0.2s"></i>
+                                        <i class="fas fa-chevron-right flow-arrow text-xs" style="animation-delay: 0.4s"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Arsenal (Pill Clusters) -->
+        <section id="skills" class="px-6 md:px-12 lg:px-20 py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-10">
+                    <h2 class="font-display font-bold text-2xl md:text-3xl text-white mb-2">Kỹ Năng Chuyên Môn</h2>
+                    <p class="text-white/40 text-sm">Skill Arsenal - Không có progress bars, chỉ có chuyên môn thực chiến</p>
+                </div>
+                
+                <div class="spatial-card p-8">
+                    <div class="glass-sheen"></div>
+                    <div class="relative z-10 grid md:grid-cols-3 gap-8">
+                        
+                        <!-- Group 1: Product Strategy -->
+                        <div>
+                            <h4 class="text-white font-medium text-sm mb-4 flex items-center">
+                                <i class="fas fa-chess-queen text-primary mr-2"></i>
+                                Product Strategy
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Backlog Management</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Sprint Planning</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Stakeholder Comm</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Product Vision</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Roadmap Strategy</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Group 2: Core BA -->
+                        <div>
+                            <h4 class="text-white font-medium text-sm mb-4 flex items-center">
+                                <i class="fas fa-sitemap text-accent mr-2"></i>
+                                Core Business Analysis
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">SRS Documentation</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">BRD Writing</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">UML Diagramming</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Workflow Optimization</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Gap Analysis</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Group 3: Tools & Tech -->
+                        <div>
+                            <h4 class="text-white font-medium text-sm mb-4 flex items-center">
+                                <i class="fas fa-tools text-primary mr-2"></i>
+                                Tools & Tech Concepts
+                            </h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Jira & Confluence</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Figma</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">Spatial UI Concepts</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">API / Postman</span>
+                                <span class="skill-pill px-3 py-1.5 rounded-full text-xs text-white/80">SQL & Data Analysis</span>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact & CV Footer -->
+        <footer id="contact" class="px-6 md:px-12 lg:px-20 py-20">
+            <div class="max-w-7xl mx-auto">
+                <div class="spatial-card p-10">
+                    <div class="glass-sheen"></div>
+                    <div class="relative z-10">
+                        <div class="grid md:grid-cols-2 gap-10 items-center">
+                            
+                            <!-- Left: Contact Info -->
+                            <div>
+                                <h3 class="font-display font-bold text-2xl text-white mb-6">Liên Hệ</h3>
+                                <div class="flex space-x-4 mb-8">
+                                    <a href="#" class="contact-icon w-12 h-12 rounded-xl flex items-center justify-center">
+                                        <i class="fab fa-linkedin-in text-white/70"></i>
+                                    </a>
+                                    <a href="#" class="contact-icon w-12 h-12 rounded-xl flex items-center justify-center">
+                                        <i class="fab fa-github text-white/70"></i>
+                                    </a>
+                                    <a href="mailto:nguyenhoaigiabao.bt@gmail.com" class="contact-icon w-12 h-12 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-envelope text-white/70"></i>
+                                    </a>
+                                </div>
+                                <div class="space-y-2 text-sm">
+                                    <p class="text-white/50">
+                                        <i class="fas fa-phone mr-2 text-primary/60"></i>
+                                        0387 227 939
+                                    </p>
+                                    <p class="text-white/50">
+                                        <i class="fas fa-map-marker-alt mr-2 text-primary/60"></i>
+                                        TP. Hồ Chí Minh, Việt Nam
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <!-- Right: CTA -->
+                            <div class="flex flex-col items-start md:items-end">
+                                <p class="text-white/40 text-sm mb-4 text-left md:text-right">
+                                    Tải xuống CV để xem chi tiết<br>
+                                    kinh nghiệm và dự án đã thực hiện
+                                </p>
+                                <a href="#" class="cta-button px-8 py-4 rounded-full text-white font-medium text-sm flex items-center space-x-3">
+                                    <i class="fas fa-download"></i>
+                                    <span>Download CV</span>
+                                </a>
+                            </div>
+                            
+                        </div>
+                        
+                        <!-- Bottom Bar -->
+                        <div class="mt-10 pt-6 border-t border-white/5 flex flex-col md:flex-row justify-between items-center">
+                            <p class="text-white/30 text-xs">
+                                &copy; 2026 Nguyễn Hoài Gia Bảo. Acting Product Owner.
+                            </p>
+                            <p class="text-white/30 text-xs mt-2 md:mt-0">
+                                Sea Dragon Technology Co., Ltd
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        
+    </div>
+    
+    <script>
+        // Typing Effect
+        const texts = [
+            "Hello! I am an Acting Product Owner.",
+            "Xin chào! Tôi là Acting Product Owner.",
+            "Leading teams. Building products."
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+        
+        function type() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            
+            let typeSpeed = isDeleting ? 40 : 80;
+            
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 600;
+            }
+            
+            setTimeout(type, typeSpeed);
+        }
+        
+        // Start typing effect
+        setTimeout(type, 800);
+    </script>
+</body>
+</html>
