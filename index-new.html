@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio của Nguyễn Hoài Gia Bảo - Aspiring Product Owner & IT Business Analyst">
+    <meta name="keywords" content="Product Owner, Business Analyst, Portfolio, Nguyễn Hoài Gia Bảo">
+    <meta name="author" content="Nguyễn Hoài Gia Bảo">
+    
+    <title>Nguyễn Hoài Gia Bảo | Aspiring Product Owner</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💼</text></svg>">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style-new.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">
+                <span class="logo-text">Bảo</span>
+                <span class="logo-dot">.</span>
+            </a>
+            
+            <div class="nav-menu" id="nav-menu">
+                <a href="#about" class="nav-link">Giới thiệu</a>
+                <a href="#experience" class="nav-link">Kinh nghiệm</a>
+                <a href="#projects" class="nav-link">Dự án</a>
+                <a href="#skills" class="nav-link">Kỹ năng</a>
+                <a href="#education" class="nav-link">Học vấn</a>
+                <a href="#contact" class="nav-link">Liên hệ</a>
+            </div>
+            
+            <div class="nav-actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-overlay" id="mobile-overlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-avatar">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Nguyễn Hoài Gia Bảo" class="avatar-img">
+                </div>
+                
+                <h1 class="hero-name">Nguyễn Hoài Gia Bảo</h1>
+                <p class="hero-title">Aspiring Product Owner | IT Business Analyst</p>
+                
+                <p class="hero-tagline">
+                    "Từ Business Analyst chuyển sang Product Owner. Tôi thích biến ý tưởng kinh doanh thành sản phẩm thực tế mà người dùng yêu thích."
+                </p>
+                
+                <div class="hero-info">
+                    <span class="info-item"><i class="fas fa-birthday-cake"></i> 23 tuổi</span>
+                    <span class="info-dot">•</span>
+                    <span class="info-item"><i class="fas fa-map-marker-alt"></i> TP. Hồ Chí Minh</span>
+                </div>
+                
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-briefcase"></i>
+                        Xem Dự Án Của Tôi
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        Liên Hệ Tôi
+                    </a>
+                </div>
+                
+                <div class="hero-social">
+                    <a href="mailto:nguyenhoaigiabao.bt@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <a href="#about" class="scroll-indicator">
+            <span class="scroll-mouse">
+                <span class="scroll-wheel"></span>
+            </span>
+            <span class="scroll-text">Cuộn xuống</span>
+        </a>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Giới thiệu</span>
+                <h2 class="section-title">Về tôi</h2>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="about-paragraph">
+                        Tôi là <strong>Nguyễn Hoài Gia Bảo</strong>, 23 tuổi, tốt nghiệp Cử nhân Kỹ thuật Phần mềm tại Đại học Gia Định năm 2025.
+                    </p>
+                    
+                    <p class="about-paragraph">
+                        Tôi bắt đầu làm việc tại <strong>Sea Dragon Technology</strong> với vai trò IT Business Analyst. Sau 9 tháng, tôi được giao thêm trách nhiệm dẫn dắt team với vai trò Team Leader kiêm BA trong 3 tháng. Những tháng ngày đó giúp tôi học được cách lắng nghe stakeholder, phân tích nhu cầu kinh doanh và phối hợp chặt chẽ với đội ngũ lập trình để đưa ra giải pháp phù hợp.
+                    </p>
+                    
+                    <p class="about-paragraph">
+                        Hiện tại, tôi đang chủ động chuyển hướng sang vai trò <strong>Product Owner</strong>. Tôi muốn được tham gia sâu hơn vào việc xây dựng tầm nhìn sản phẩm, sắp xếp ưu tiên công việc dựa trên giá trị thực sự, và cùng đội ngũ tạo ra những tính năng mang lại lợi ích rõ ràng cho người dùng lẫn doanh nghiệp.
+                    </p>
+                    
+                    <p class="about-paragraph">
+                        Tôi rất thích cách làm việc theo <strong>Agile & Scrum</strong>, giao tiếp khá tốt và học hỏi nhanh. Hiện tôi đang tìm kiếm vị trí <strong>Junior Product Owner</strong> hoặc <strong>Associate Product Owner</strong> tại TP. Hồ Chí Minh để tiếp tục phát triển bản thân trong lĩnh vực quản lý sản phẩm.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="section experience" id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Kinh nghiệm</span>
+                <h2 class="section-title">Quá trình làm việc</h2>
+            </div>
+            
+            <div class="experience-card">
+                <div class="exp-header">
+                    <div class="exp-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="exp-info">
+                        <h3 class="exp-title">IT Business Analyst & Team Leader</h3>
+                        <p class="exp-company">Sea Dragon Technology</p>
+                        <p class="exp-date"><i class="fas fa-calendar-alt"></i> 06/2025 – Hiện tại</p>
+                    </div>
+                </div>
+                
+                <div class="exp-description">
+                    <p>Phụ trách phân tích yêu cầu kinh doanh, quản lý product backlog và dẫn dắt team phát triển sản phẩm nội bộ.</p>
+                </div>
+                
+                <ul class="exp-responsibilities">
+                    <li><i class="fas fa-check-circle"></i> Thu thập và phân tích yêu cầu từ các bên liên quan (stakeholders)</li>
+                    <li><i class="fas fa-check-circle"></i> Viết user stories, acceptance criteria và tài liệu đặc tả (SRS/BRD)</li>
+                    <li><i class="fas fa-check-circle"></i> Quản lý product backlog và sắp xếp ưu tiên theo giá trị kinh doanh</li>
+                    <li><i class="fas fa-check-circle"></i> Làm cầu nối giữa business và development team</li>
+                    <li><i class="fas fa-check-circle"></i> Dẫn dắt team 4 người, tổ chức daily standup và sprint planning</li>
+                    <li><i class="fas fa-check-circle"></i> Hỗ trợ testing và đảm bảo chất lượng sản phẩm trước khi release</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Dự án</span>
+                <h2 class="section-title">Dự án tiêu biểu</h2>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: HRM System -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=400&fit=crop" alt="HRM System">
+                        <div class="project-overlay">
+                            <button class="btn-view" data-project="hrm">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">HRM System</h3>
+                        <p class="project-subtitle">Quản lý Nhân sự</p>
+                        <p class="project-description">
+                            Tham gia xây dựng hệ thống quản lý thông tin nhân viên, chấm công, tính lương và đánh giá hiệu suất.
+                        </p>
+                        <div class="project-role">
+                            <span class="role-label">Vai trò:</span>
+                            <span class="role-value">Business Analyst</span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Agile</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 2: Project Management Tool -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&h=400&fit=crop" alt="Project Management Tool">
+                        <div class="project-overlay">
+                            <button class="btn-view" data-project="pmt">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Project Management Tool</h3>
+                        <p class="project-subtitle">Công cụ quản lý dự án</p>
+                        <p class="project-description">
+                            Xây dựng công cụ quản lý dự án nội bộ giúp theo dõi công việc, timeline và báo cáo tiến độ.
+                        </p>
+                        <div class="project-role">
+                            <span class="role-label">Vai trò:</span>
+                            <span class="role-value">Team Leader & BA</span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">Jira</span>
+                            <span class="tech-tag">Scrum</span>
+                            <span class="tech-tag">User Stories</span>
+                            <span class="tech-tag">MVP</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <!-- Project 3: Marketing Data System -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Marketing Data System">
+                        <div class="project-overlay">
+                            <button class="btn-view" data-project="marketing">Xem chi tiết</button>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Marketing Data & Reporting</h3>
+                        <p class="project-subtitle">Hệ thống báo cáo Marketing</p>
+                        <p class="project-description">
+                            Phát triển hệ thống nhập liệu và dashboard báo cáo cho bộ phận Marketing.
+                        </p>
+                        <div class="project-role">
+                            <span class="role-label">Vai trò:</span>
+                            <span class="role-value">Business Analyst</span>
+                        </div>
+                        <div class="project-tech">
+                            <span class="tech-tag">SQL</span>
+                            <span class="tech-tag">Data Analysis</span>
+                            <span class="tech-tag">Dashboard</span>
+                            <span class="tech-tag">Excel</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Kỹ năng</span>
+                <h2 class="section-title">Các kỹ năng chính</h2>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Product Ownership -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon">
+                            <i class="fas fa-chess-king"></i>
+                        </div>
+                        <h3 class="skill-title">Product Ownership</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Product Backlog Management & Prioritization</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Product Vision & Roadmap</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>User Story Writing & Acceptance Criteria</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Stakeholder Management</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Agile & Scrum</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Value-based Prioritization & MVP</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Technical & Analysis -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon--tech">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="skill-title">Technical & Analysis</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Business Process Analysis</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>SQL & Data Analysis</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Jira / Trello / Asana</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Figma (UI/UX)</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>SDLC Fundamentals</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Leadership & Soft Skills -->
+                <div class="skill-category">
+                    <div class="skill-header">
+                        <div class="skill-icon skill-icon--soft">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="skill-title">Leadership & Soft Skills</h3>
+                    </div>
+                    <ul class="skill-list">
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Team Collaboration & Leadership</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Communication</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Problem Solving</span>
+                        </li>
+                        <li class="skill-item">
+                            <i class="fas fa-check"></i>
+                            <span>Quick Learner & Adaptability</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="section education" id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Học vấn</span>
+                <h2 class="section-title">Quá trình học tập</h2>
+            </div>
+            
+            <div class="education-card">
+                <div class="edu-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="edu-content">
+                    <h3 class="edu-degree">Cử nhân Kỹ thuật Phần mềm</h3>
+                    <p class="edu-school">Đại học Gia Định</p>
+                    <p class="edu-year"><i class="fas fa-calendar"></i> 2022 – 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Liên hệ</span>
+                <h2 class="section-title">Hãy kết nối với tôi</h2>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4>Email</h4>
+                        <a href="mailto:nguyenhoaigiabao.bt@gmail.com">nguyenhoaigiabao.bt@gmail.com</a>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4>Địa điểm</h4>
+                        <p>TP. Hồ Chí Minh, Việt Nam</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-file-download"></i>
+                        </div>
+                        <h4>CV của tôi</h4>
+                        <a href="#" class="btn-download" download>
+                            <i class="fas fa-download"></i>
+                            Tải CV
+                        </a>
+                    </div>
+                    
+                    <div class="contact-social">
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Họ và tên</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="Nhập họ tên của bạn" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" placeholder="Nhập email của bạn" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Chủ đề</label>
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder="Chủ đề tin nhắn">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message" class="form-label">Tin nhắn</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" placeholder="Nhập nội dung tin nhắn..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Gửi tin nhắn
+                        </button>
+                    </form>
+                    
+                    <div class="form-note">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Form liên hệ được kết nối với Formspree. Để sử dụng, thay YOUR_FORM_ID bằng ID form của bạn tại <a href="https://formspree.io" target="_blank">formspree.io</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2025 Nguyễn Hoài Gia Bảo. Được xây dựng với 
+                    <i class="fas fa-heart"></i> và 
+                    <i class="fas fa-coffee"></i>
+                </p>
+                <p class="footer-role">Aspiring Product Owner | TP. Hồ Chí Minh</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close modal">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <!-- Modal content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/script-new.js"></script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title x-text="t.title">Nguyễn Hoài Gia Bảo | Acting Product Owner</title>
+    <title x-text="t().title">Nguyễn Hoài Gia Bảo | Acting Product Owner</title>
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,16 +30,6 @@
                         primary: '#007bff',
                         'primary-dark': '#0056b3',
                         accent: '#ff6b35',
-                        dark: {
-                            bg: '#000000',
-                            card: '#0a0a0f',
-                            surface: '#111118',
-                        },
-                        light: {
-                            bg: '#fafafa',
-                            card: '#ffffff',
-                            surface: '#f5f5f7',
-                        }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -64,46 +54,24 @@
             -webkit-font-smoothing: antialiased;
         }
         
+        body {
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
         /* DARK MODE (Default) */
         .dark body {
-            background: #000000;
+            background-color: #000000;
             color: #ffffff;
         }
         
         /* LIGHT MODE */
         body:not(.dark) {
-            background: #fafafa;
+            background-color: #f8f9fa;
             color: #1a1a2e;
         }
         
-        /* Aurora Effects - Dark */
-        .dark .aurora-blob {
-            filter: blur(120px);
-            opacity: 0.4;
-        }
-        
-        .dark .aurora-blue {
-            background: radial-gradient(circle, rgba(0,123,255,0.5) 0%, transparent 70%);
-        }
-        
-        .dark .aurora-orange {
-            background: radial-gradient(circle, rgba(255,107,53,0.3) 0%, transparent 70%);
-        }
-        
-        /* Aurora Effects - Light */
-        body:not(.dark) .aurora-blob {
-            filter: blur(100px);
-            opacity: 0.15;
-        }
-        
-        body:not(.dark) .aurora-blue {
-            background: radial-gradient(circle, rgba(0,123,255,0.25) 0%, transparent 70%);
-        }
-        
-        body:not(.dark) .aurora-orange {
-            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
-        }
-        
+        /* Aurora Background */
         .aurora-container {
             position: fixed;
             inset: 0;
@@ -118,7 +86,17 @@
             animation: aurora-drift 20s infinite ease-in-out;
         }
         
-        .aurora-1 {
+        .dark .aurora-blob {
+            filter: blur(120px);
+            opacity: 0.4;
+        }
+        
+        body:not(.dark) .aurora-blob {
+            filter: blur(100px);
+            opacity: 0.12;
+        }
+        
+        .aurora-blue {
             width: 600px;
             height: 600px;
             top: -200px;
@@ -126,7 +104,15 @@
             animation-delay: 0s;
         }
         
-        .aurora-2 {
+        .dark .aurora-blue {
+            background: radial-gradient(circle, rgba(0,123,255,0.5) 0%, transparent 70%);
+        }
+        
+        body:not(.dark) .aurora-blue {
+            background: radial-gradient(circle, rgba(0,123,255,0.3) 0%, transparent 70%);
+        }
+        
+        .aurora-cyan {
             width: 500px;
             height: 500px;
             bottom: -150px;
@@ -134,7 +120,15 @@
             animation-delay: -7s;
         }
         
-        .aurora-3 {
+        .dark .aurora-cyan {
+            background: radial-gradient(circle, rgba(0,212,255,0.4) 0%, transparent 70%);
+        }
+        
+        body:not(.dark) .aurora-cyan {
+            background: radial-gradient(circle, rgba(0,212,255,0.25) 0%, transparent 70%);
+        }
+        
+        .aurora-orange {
             width: 400px;
             height: 400px;
             top: 50%;
@@ -142,48 +136,45 @@
             animation-delay: -14s;
         }
         
+        .dark .aurora-orange {
+            background: radial-gradient(circle, rgba(255,107,53,0.3) 0%, transparent 70%);
+        }
+        
+        body:not(.dark) .aurora-orange {
+            background: radial-gradient(circle, rgba(255,107,53,0.15) 0%, transparent 70%);
+        }
+        
         @keyframes aurora-drift {
             0%, 100% { transform: translate(0, 0) scale(1); }
             50% { transform: translate(30px, -30px) scale(1.05); }
         }
         
-        /* Glass Cards - Dark Mode */
+        /* Glass Cards - Dark */
         .dark .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         
         .dark .glass-card:hover {
             border-color: rgba(0, 123, 255, 0.4);
-            box-shadow: 
-                0 20px 60px rgba(0, 123, 255, 0.15),
-                0 0 0 1px rgba(0, 123, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 123, 255, 0.15), 0 0 0 1px rgba(0, 123, 255, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
         
-        /* Glass Cards - Light Mode */
+        /* Glass Cards - Light */
         body:not(.dark) .glass-card {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.08),
-                0 2px 8px rgba(0, 0, 0, 0.04),
-                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.8);
         }
         
         body:not(.dark) .glass-card:hover {
             border-color: rgba(0, 123, 255, 0.3);
-            box-shadow: 
-                0 20px 60px rgba(0, 123, 255, 0.1),
-                0 0 0 1px rgba(0, 123, 255, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            box-shadow: 0 20px 60px rgba(0, 123, 255, 0.1), 0 0 0 1px rgba(0, 123, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
         
         .glass-card {
@@ -207,7 +198,7 @@
             left: -100%;
             width: 50%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
             transition: left 0.6s ease;
         }
         
@@ -265,44 +256,73 @@
             cursor: default;
         }
         
-        /* Navigation Styles */
-        .dark nav {
+        /* Navigation */
+        .nav-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            padding: 16px 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .dark .nav-container {
             background: rgba(0, 0, 0, 0.7);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        body:not(.dark) nav {
+        body:not(.dark) .nav-container {
             background: rgba(255, 255, 255, 0.8);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
-        nav {
+        .nav-container {
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
         }
         
         /* Toggle Buttons */
-        .toggle-btn {
+        .theme-toggle, .lang-btn {
             transition: all 0.3s ease;
+            border-radius: 9999px;
         }
         
-        .dark .toggle-btn {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.8);
+        .dark .theme-toggle {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.9);
         }
         
-        body:not(.dark) .toggle-btn {
-            background: rgba(0, 0, 0, 0.05);
+        body:not(.dark) .theme-toggle {
+            background: rgba(0, 0, 0, 0.06);
             border: 1px solid rgba(0, 0, 0, 0.1);
             color: rgba(0, 0, 0, 0.7);
         }
         
-        .toggle-btn:hover {
+        .theme-toggle:hover, .lang-btn:hover {
             transform: scale(1.05);
         }
         
-        .toggle-btn.active {
+        .lang-btn {
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .dark .lang-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        body:not(.dark) .lang-btn {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .lang-btn.active {
             background: #007bff !important;
             border-color: #007bff !important;
             color: white !important;
@@ -316,38 +336,18 @@
         }
         
         .dark .evolution-line {
-            background: linear-gradient(to bottom, 
-                rgba(255,255,255,0.1), 
-                rgba(0,123,255,0.5),
-                rgba(255,255,255,0.1));
+            background: linear-gradient(to bottom, rgba(255,255,255,0.1), rgba(0,123,255,0.5), rgba(255,255,255,0.1));
         }
         
         body:not(.dark) .evolution-line {
-            background: linear-gradient(to bottom, 
-                rgba(0,0,0,0.1), 
-                rgba(0,123,255,0.5),
-                rgba(0,0,0,0.1));
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,123,255,0.5), rgba(0,0,0,0.1));
         }
         
-        /* Process Flow Lines */
-        .flow-line {
-            height: 2px;
-            flex: 1;
-        }
-        
-        .dark .flow-line {
-            background: linear-gradient(90deg, 
-                rgba(0,123,255,0.3), 
-                rgba(0,212,255,0.5),
-                rgba(0,123,255,0.3));
-        }
-        
-        body:not(.dark) .flow-line {
-            background: linear-gradient(90deg, 
-                rgba(0,123,255,0.2), 
-                rgba(0,123,255,0.4),
-                rgba(0,123,255,0.2));
-        }
+        /* Text Colors */
+        .dark .text-soft { color: rgba(255, 255, 255, 0.6); }
+        .dark .text-muted { color: rgba(255, 255, 255, 0.4); }
+        body:not(.dark) .text-soft { color: rgba(0, 0, 0, 0.6); }
+        body:not(.dark) .text-muted { color: rgba(0, 0, 0, 0.4); }
         
         /* CTA Button */
         .cta-btn {
@@ -355,6 +355,9 @@
             color: white;
             font-weight: 600;
             transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .cta-btn:hover {
@@ -362,30 +365,31 @@
             box-shadow: 0 15px 40px rgba(0, 123, 255, 0.4);
         }
         
-        /* Contact Icons - Dark */
-        .dark .contact-icon {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        /* Secondary Button */
+        .btn-secondary {
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .dark .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: rgba(255, 255, 255, 0.8);
         }
         
-        .dark .contact-icon:hover {
-            background: rgba(0, 123, 255, 0.1);
-            border-color: rgba(0, 123, 255, 0.4);
-        }
-        
-        /* Contact Icons - Light */
-        body:not(.dark) .contact-icon {
-            background: rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+        body:not(.dark) .btn-secondary {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             color: rgba(0, 0, 0, 0.7);
         }
         
-        body:not(.dark) .contact-icon:hover {
-            background: rgba(0, 123, 255, 0.1);
-            border-color: rgba(0, 123, 255, 0.3);
+        .btn-secondary:hover {
+            transform: translateY(-2px);
         }
         
+        /* Contact Icons */
         .contact-icon {
             width: 48px;
             height: 48px;
@@ -396,13 +400,81 @@
             transition: all 0.3s ease;
         }
         
-        /* Text Colors */
-        .dark .text-primary-soft { color: rgba(255, 255, 255, 0.6); }
-        .dark .text-secondary-soft { color: rgba(255, 255, 255, 0.4); }
-        body:not(.dark) .text-primary-soft { color: rgba(0, 0, 0, 0.6); }
-        body:not(.dark) .text-secondary-soft { color: rgba(0, 0, 0, 0.4); }
+        .dark .contact-icon {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+        }
         
-        /* Reduced Motion */
+        .dark .contact-icon:hover {
+            background: rgba(0, 123, 255, 0.15);
+            border-color: rgba(0, 123, 255, 0.4);
+            transform: translateY(-4px);
+        }
+        
+        body:not(.dark) .contact-icon {
+            background: rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        body:not(.dark) .contact-icon:hover {
+            background: rgba(0, 123, 255, 0.1);
+            border-color: rgba(0, 123, 255, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        /* Process Flow Lines */
+        .flow-line {
+            height: 2px;
+            flex: 1;
+            border-radius: 1px;
+        }
+        
+        .dark .flow-line {
+            background: linear-gradient(90deg, rgba(0,123,255,0.3), rgba(0,212,255,0.6), rgba(0,123,255,0.3));
+        }
+        
+        body:not(.dark) .flow-line {
+            background: linear-gradient(90deg, rgba(0,123,255,0.2), rgba(0,123,255,0.5), rgba(0,123,255,0.2));
+        }
+        
+        /* Portrait placeholder */
+        .portrait {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        
+        .dark .portrait {
+            background: linear-gradient(135deg, rgba(0,123,255,0.2) 0%, rgba(255,107,53,0.1) 100%);
+            border: 2px solid rgba(0,123,255,0.3);
+            box-shadow: 0 0 60px rgba(0,123,255,0.2);
+        }
+        
+        body:not(.dark) .portrait {
+            background: linear-gradient(135deg, rgba(0,123,255,0.1) 0%, rgba(255,107,53,0.05) 100%);
+            border: 2px solid rgba(0,123,255,0.2);
+            box-shadow: 0 0 40px rgba(0,123,255,0.1);
+        }
+        
+        /* Typing cursor */
+        .typing-cursor {
+            animation: blink 1s infinite;
+            color: #007bff;
+        }
+        
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        
+        /* Reduced motion */
         @media (prefers-reduced-motion: reduce) {
             *, *::before, *::after {
                 animation-duration: 0.01ms !important;
@@ -416,270 +488,292 @@
             .dark .glass-card { background: rgba(15, 20, 30, 0.98); }
             body:not(.dark) .glass-card { background: rgba(255, 255, 255, 0.98); }
         }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glass-card { border-radius: 20px; }
+            .portrait { width: 140px; height: 140px; font-size: 3rem; }
+            header { min-height: auto; padding-top: 100px; padding-bottom: 40px; }
+            .nav-container { padding: 12px 16px; }
+        }
     </style>
 </head>
-<body class="antialiased" :class="{ 'dark': isDark }">
+<body class="antialiased" :class="{ 'dark': darkMode }">
     
     <!-- Aurora Background -->
     <div class="aurora-container">
-        <div class="aurora-blob aurora-blue aurora-1"></div>
-        <div class="aurora-blob aurora-blue aurora-2"></div>
-        <div class="aurora-blob aurora-orange aurora-3"></div>
+        <div class="aurora-blob aurora-blue"></div>
+        <div class="aurora-blob aurora-cyan"></div>
+        <div class="aurora-blob aurora-orange"></div>
     </div>
     
     <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 lg:px-20 py-4 flex justify-between items-center">
-        <div class="font-display font-bold text-2xl tracking-tight">
-            <span x-text="t.brandName">Bảo</span>
+    <nav class="nav-container flex justify-between items-center px-6 md:px-12 lg:px-20">
+        <div class="font-display font-bold text-2xl tracking-tight flex items-center">
+            <span class="portrait mr-4 text-3xl">
+                <i class="fas fa-user"></i>
+            </span>
+            <span x-text="t().brandName">Bảo</span>
             <span class="text-primary">.</span>
         </div>
         
-        <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-3">
             <!-- Theme Toggle -->
-            <button @click="toggleTheme()" class="toggle-btn w-10 h-10 rounded-full flex items-center justify-center" aria-label="Toggle theme">
-                <i :class="isDark ? 'fas fa-sun' : 'fas fa-moon'"></i>
+            <button @click="toggleTheme()" 
+                    class="theme-toggle w-10 h-10 flex items-center justify-center"
+                    :aria-label="darkMode ? 'Switch to light mode' : 'Switch to dark mode'">
+                <i class="fas" :class="darkMode ? 'fa-sun' : 'fa-moon'"></i>
             </button>
             
             <!-- Language Toggle -->
-            <div class="flex rounded-full overflow-hidden">
-                <button @click="setLang('vie')" 
-                        :class="{ 'active': lang === 'vie' }"
-                        class="toggle-btn px-3 py-1.5 text-xs font-medium">
-                    VIE
-                </button>
-                <button @click="setLang('eng')" 
-                        :class="{ 'active': lang === 'eng' }"
-                        class="toggle-btn px-3 py-1.5 text-xs font-medium">
-                    ENG
-                </button>
-            </div>
+            <button @click="setLang('vie')" 
+                    class="lang-btn"
+                    :class="{ 'active': currentLang === 'vie' }">
+                VIE
+            </button>
+            <button @click="setLang('eng')" 
+                    class="lang-btn"
+                    :class="{ 'active': currentLang === 'eng' }">
+                ENG
+            </button>
         </div>
     </nav>
     
     <!-- Main Content -->
     <main class="relative z-10 pt-24">
         
-        <!-- SECTION 1: HERO & IMMEDIATE IMPACT (Above the fold) -->
-        <section class="min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-12" data-aos="fade-up">
+        <!-- HERO SECTION -->
+        <header class="min-h-screen flex items-center px-6 md:px-12 lg:px-20 py-12" data-aos="fade-up">
             <div class="max-w-7xl mx-auto w-full">
-                <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="grid lg:grid-cols-5 gap-8 items-center">
                     
-                    <!-- Left: Hero Text -->
-                    <div>
-                        <p class="text-primary text-sm font-semibold tracking-widest uppercase mb-4" 
-                           x-text="t.role">Acting Product Owner</p>
-                        
-                        <h1 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl leading-tight mb-6">
-                            <span x-html="t.heroGreeting"></span>
-                        </h1>
-                        
-                        <p class="text-lg md:text-xl mb-2 h-12">
-                            <span id="typing-text" class="text-primary-soft"></span>
-                            <span class="typing-cursor">|</span>
-                        </p>
-                        
-                        <p class="text-secondary-soft text-sm mt-6 max-w-md" x-text="t.heroDesc">
-                            1 năm kinh nghiệm dẫn dắt đội ngũ và quản lý tầm nhìn sản phẩm
-                        </p>
-                        
-                        <div class="flex gap-4 mt-8">
-                            <a href="#contact" class="cta-btn px-6 py-3 rounded-full text-sm flex items-center space-x-2">
-                                <span x-text="t.contactBtn">Contact Me</span>
-                                <i class="fas fa-arrow-right"></i>
-                            </a>
-                            <a href="#" class="toggle-btn px-6 py-3 rounded-full text-sm flex items-center space-x-2">
-                                <i class="fas fa-download"></i>
-                                <span x-text="t.cvBtn">Download CV</span>
-                            </a>
+                    <!-- Left: Portrait & Basic Info -->
+                    <div class="lg:col-span-2 flex flex-col items-center lg:items-start" data-aos="fade-right">
+                        <div class="portrait mb-6">
+                            <i class="fas fa-user text-primary"></i>
                         </div>
+                        <p class="text-primary text-sm font-semibold tracking-widest uppercase mb-2" 
+                           x-text="t().role">Acting Product Owner</p>
+                        <h1 class="font-display font-bold text-4xl md:text-5xl text-center lg:text-left leading-tight">
+                            <span x-html="t().heroGreeting"></span>
+                        </h1>
                     </div>
                     
-                    <!-- Right: Experience Evolution Card (Above the fold impact) -->
-                    <div class="glass-card sheen p-8" data-aos="fade-left" data-aos-delay="200">
-                        <div class="flex items-center space-x-3 mb-6">
-                            <div class="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center">
-                                <i class="fas fa-chart-line text-primary"></i>
-                            </div>
-                            <h3 class="font-display font-bold text-xl" x-text="t.evolutionTitle">Hành trình nội bộ</h3>
-                        </div>
-                        
-                        <!-- Evolution Timeline -->
-                        <div class="space-y-0 mb-6">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2 h-2 rounded-full bg-secondary-soft"></div>
-                                <span class="text-secondary-soft text-sm" x-text="t.roleIntern">IT Intern</span>
-                            </div>
-                            <div class="evolution-line ml-0.5"></div>
+                    <!-- Right: Career Evolution Card -->
+                    <div class="lg:col-span-3">
+                        <div class="glass-card sheen p-8" data-aos="fade-left" data-aos-delay="200">
+                            <h3 class="font-display font-bold text-xl mb-6" x-text="t().evolutionTitle">Career Evolution</h3>
                             
-                            <div class="flex items-center space-x-3">
-                                <div class="w-2.5 h-2.5 rounded-full bg-primary/60"></div>
-                                <span class="text-primary-soft text-sm" x-text="t.roleBA">Lead IT Business Analyst</span>
+                            <!-- Evolution Timeline -->
+                            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <div class="w-3 h-3 rounded-full bg-gray-400"></div>
+                                        <span class="text-muted text-sm" x-text="t().roleIntern">IT Intern</span>
+                                    </div>
+                                    <div class="evolution-line md:hidden ml-1.5"></div>
+                                </div>
+                                
+                                <div class="hidden md:block px-4">
+                                    <i class="fas fa-arrow-right text-primary/50"></i>
+                                </div>
+                                <div class="evolution-line md:hidden ml-1.5"></div>
+                                
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-3 mb-2">
+                                        <div class="w-3 h-3 rounded-full bg-primary/60"></div>
+                                        <span class="text-soft text-sm" x-text="t().roleBA">Lead Business Analyst</span>
+                                    </div>
+                                    <div class="evolution-line md:hidden ml-1.5"></div>
+                                </div>
+                                
+                                <div class="hidden md:block px-4">
+                                    <i class="fas fa-arrow-right text-primary/50"></i>
+                                </div>
+                                <div class="evolution-line md:hidden ml-1.5"></div>
+                                
+                                <div class="flex-1">
+                                    <div class="flex items-center space-x-3">
+                                        <div class="w-4 h-4 rounded-full bg-primary shadow-lg shadow-primary/50"></div>
+                                        <span class="font-semibold text-sm gradient-text" x-text="t().rolePO">Acting Product Owner</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="evolution-line ml-0.5"></div>
                             
-                            <div class="flex items-center space-x-3">
-                                <div class="w-3 h-3 rounded-full bg-primary shadow-lg shadow-primary/50"></div>
-                                <span class="font-semibold text-sm gradient-text" x-text="t.rolePO">Acting Product Owner</span>
+                            <!-- Key Metrics -->
+                            <div class="pt-6 border-t border-current border-opacity-10">
+                                <div class="grid grid-cols-3 gap-4 text-center">
+                                    <div>
+                                        <p class="text-2xl font-bold text-primary">4</p>
+                                        <p class="text-xs text-soft" x-text="t().metricTeam">Team Members</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold gradient-text">HRM 2.0</p>
+                                        <p class="text-xs text-soft" x-text="t().metricVision">Product Vision</p>
+                                    </div>
+                                    <div>
+                                        <p class="text-2xl font-bold text-accent">-20%</p>
+                                        <p class="text-xs text-soft" x-text="t().metricRework">Rework Rate</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Company Info -->
+                            <div class="mt-6 pt-4 border-t border-current border-opacity-10 flex justify-between items-center">
+                                <p class="text-muted text-xs">Sea Dragon Technology Co., Ltd</p>
+                                <p class="text-muted text-xs">2025 - Present</p>
                             </div>
                         </div>
                         
-                        <!-- Key Achievements -->
-                        <div class="pt-4 border-t border-current border-opacity-10 space-y-2">
-                            <div class="flex items-center space-x-2 text-sm">
-                                <i class="fas fa-users text-primary"></i>
-                                <span class="text-primary-soft" x-text="t.achievementTeam">Lead team of 4</span>
+                        <!-- Hero Description & CTAs -->
+                        <div class="mt-8 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                            <div class="max-w-md">
+                                <p class="text-lg mb-2">
+                                    <span id="typing-text" class="text-soft"></span>
+                                    <span class="typing-cursor">|</span>
+                                </p>
+                                <p class="text-muted text-sm" x-text="t().heroDesc">1 year experience leading teams and managing product vision</p>
                             </div>
-                            <div class="flex items-center space-x-2 text-sm">
-                                <i class="fas fa-rocket text-primary"></i>
-                                <span class="text-primary-soft" x-text="t.achievementVision">HRM 2.0 Vision</span>
+                            
+                            <div class="flex gap-4">
+                                <a href="#contact" class="cta-btn px-6 py-3 rounded-full text-sm">
+                                    <span x-text="t().contactBtn">Contact Me</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <a href="#" class="btn-secondary px-6 py-3 rounded-full text-sm">
+                                    <i class="fas fa-download"></i>
+                                    <span x-text="t().cvBtn">Download CV</span>
+                                </a>
                             </div>
-                            <div class="flex items-center space-x-2 text-sm">
-                                <i class="fas fa-arrow-trend-down text-primary"></i>
-                                <span class="text-primary-soft">
-                                    <span class="text-primary font-semibold">-20%</span>
-                                    <span x-text="t.achievementRework">rework rate</span>
-                                </span>
-                            </div>
-                        </div>
-                        
-                        <div class="mt-4 pt-3 border-t border-current border-opacity-10">
-                            <p class="text-secondary-soft text-xs" x-text="t.company">Sea Dragon Technology Co., Ltd | Mid 2025 - Present</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <!-- SECTION 2: STRATEGIC METHODOLOGY BENTO -->
+        </header>
+
+        <!-- METHODOLOGY SECTION -->
         <section class="px-6 md:px-12 lg:px-20 py-16" id="methodology">
             <div class="max-w-7xl mx-auto">
                 <div class="text-center mb-12" data-aos="fade-up">
-                    <h2 class="font-display font-bold text-3xl md:text-4xl mb-3" x-text="t.methodologyTitle">Phương pháp làm việc</h2>
-                    <p class="text-secondary-soft text-sm" x-text="t.methodologySubtitle">Quy trình thực chiến từ ý tưởng đến sản phẩm</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl mb-3" x-text="t().methodologyTitle">Product Thought & Method</h2>
+                    <p class="text-muted text-sm" x-text="t().methodologySubtitle">End-to-end product process from ideation to delivery</p>
                 </div>
                 
-                <!-- Methodology Cards with Flow Lines -->
                 <div class="relative">
-                    <!-- Desktop Flow Lines -->
-                    <div class="hidden lg:flex absolute top-1/2 left-[12%] right-[12%] -translate-y-1/2 z-0">
+                    <!-- Flow Lines (Desktop) -->
+                    <div class="hidden lg:flex absolute top-24 left-[12%] right-[12%] z-0">
                         <div class="flow-line"></div>
-                        <div class="flow-line"></div>
+                        <div class="flow-line mx-4"></div>
                         <div class="flow-line"></div>
                     </div>
                     
+                    <!-- Methodology Cards -->
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
-                        <!-- Card 1: Discovery -->
-                        <div class="glass-card sheen p-6" data-aos="zoom-in" data-aos-delay="0">
-                            <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-lightbulb text-primary text-xl"></i>
+                        
+                        <!-- Discovery -->
+                        <div class="glass-card p-6" data-aos="zoom-in" data-aos-delay="0">
+                            <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-lightbulb text-primary text-2xl"></i>
                             </div>
-                            <h3 class="font-display font-bold text-lg mb-2" x-text="t.discoveryTitle">Discovery</h3>
-                            <p class="text-secondary-soft text-sm mb-3" x-text="t.discoveryDesc">Phân tích nhu cầu người dùng, nghiên cứu thị trường, xác định pain points và cơ hội.</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-primary-soft">User Research</span>
-                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-primary-soft">Strategy</span>
+                            <h3 class="font-display font-bold text-lg mb-2" x-text="t().discoveryTitle">Discovery & Strategy</h3>
+                            <p class="text-muted text-sm mb-4" x-text="t().discoveryDesc">User needs analysis, market research, pain points identification and opportunity mapping.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-soft">Research</span>
+                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-soft">Strategy</span>
                             </div>
                         </div>
                         
-                        <!-- Card 2: Backlog -->
-                        <div class="glass-card sheen p-6" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="w-12 h-12 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-list-check text-primary text-xl"></i>
+                        <!-- Backlog -->
+                        <div class="glass-card p-6" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-14 h-14 rounded-2xl bg-primary/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-layer-group text-primary text-2xl"></i>
                             </div>
-                            <h3 class="font-display font-bold text-lg mb-2" x-text="t.backlogTitle">Backlog & Priority</h3>
-                            <p class="text-secondary-soft text-sm mb-3" x-text="t.backlogDesc">Quản lý Product Backlog, viết User Stories, phân tích Acceptance Criteria, ưu tiên theo giá trị.</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-primary-soft">User Stories</span>
-                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-primary-soft">Prioritization</span>
-                            </div>
-                        </div>
-                        
-                        <!-- Card 3: Roadmap -->
-                        <div class="glass-card sheen p-6" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-map-marked-alt text-accent text-xl"></i>
-                            </div>
-                            <h3 class="font-display font-bold text-lg mb-2" x-text="t.roadmapTitle">Roadmap & Vision</h3>
-                            <p class="text-secondary-soft text-sm mb-3" x-text="t.roadmapDesc">Xây dựng lộ trình sản phẩm, định nghĩa tầm nhìn chiến lược, milestones và OKRs.</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-accent">Strategic Vision</span>
-                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-accent">Milestones</span>
+                            <h3 class="font-display font-bold text-lg mb-2" x-text="t().backlogTitle">Backlog & Prioritization</h3>
+                            <p class="text-muted text-sm mb-4" x-text="t().backlogDesc">Product Backlog management, User Stories, Acceptance Criteria, value-based prioritization.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-soft">Agile</span>
+                                <span class="text-xs px-2 py-1 rounded bg-primary/10 text-soft">Scrum</span>
                             </div>
                         </div>
                         
-                        <!-- Card 4: Data-Driven -->
-                        <div class="glass-card sheen p-6" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="w-12 h-12 rounded-2xl bg-accent/20 flex items-center justify-center mb-4">
-                                <i class="fas fa-chart-line text-accent text-xl"></i>
+                        <!-- Roadmap -->
+                        <div class="glass-card p-6" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-map-marked-alt text-accent text-2xl"></i>
                             </div>
-                            <h3 class="font-display font-bold text-lg mb-2" x-text="t.dataTitle">Data-Driven</h3>
-                            <p class="text-secondary-soft text-sm mb-3" x-text="t.dataDesc">Phân tích metrics, đo lường hiệu quả, đưa ra quyết định dựa trên dữ liệu thực tế.</p>
-                            <div class="flex flex-wrap gap-1.5">
-                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-accent">Analytics</span>
-                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-accent">KPIs</span>
+                            <h3 class="font-display font-bold text-lg mb-2" x-text="t().roadmapTitle">Roadmap & Vision</h3>
+                            <p class="text-muted text-sm mb-4" x-text="t().roadmapDesc">Product roadmap development, strategic vision definition, milestones and OKRs.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-soft">Planning</span>
+                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-soft">OKRs</span>
                             </div>
                         </div>
+                        
+                        <!-- Data-Driven -->
+                        <div class="glass-card p-6" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="w-14 h-14 rounded-2xl bg-accent/20 flex items-center justify-center mb-4">
+                                <i class="fas fa-chart-line text-accent text-2xl"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg mb-2" x-text="t().dataTitle">Data-Driven Analytics</h3>
+                            <p class="text-muted text-sm mb-4" x-text="t().dataDesc">Metrics analysis, effectiveness measurement, making decisions based on real data.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-soft">Analytics</span>
+                                <span class="text-xs px-2 py-1 rounded bg-accent/10 text-soft">KPIs</span>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </section>
-        
-        <!-- SECTION 3: SKILL ARSENAL -->
+
+        <!-- SKILLS SECTION -->
         <section class="px-6 md:px-12 lg:px-20 py-16" id="skills">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-10" data-aos="fade-up">
-                    <h2 class="font-display font-bold text-3xl md:text-4xl mb-2" x-text="t.skillsTitle">Kho vũ khí kỹ năng</h2>
-                    <p class="text-secondary-soft text-sm" x-text="t.skillsSubtitle">Không có percentage, chỉ có chuyên môn thực chiến</p>
+                    <h2 class="font-display font-bold text-3xl md:text-4xl mb-2" x-text="t().skillsTitle">Skill Arsenal</h2>
+                    <p class="text-muted text-sm" x-text="t().skillsSubtitle">No percentages, only battle-tested expertise</p>
                 </div>
                 
-                <div class="glass-card sheen p-8" data-aos="fade-up">
+                <div class="glass-card p-8" data-aos="fade-up">
                     <div class="grid md:grid-cols-3 gap-8">
                         
                         <!-- Product Strategy -->
                         <div>
-                            <h4 class="font-display font-semibold mb-4 flex items-center text-primary-soft">
+                            <h4 class="font-display font-semibold mb-4 flex items-center text-soft">
                                 <i class="fas fa-chess-queen text-primary mr-2"></i>
-                                <span x-text="t.catProduct">Product Strategy</span>
+                                <span x-text="t().catProduct">Product Strategy</span>
                             </h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="skill-pill">Backlog Management</span>
-                                <span class="skill-pill">Sprint Planning</span>
-                                <span class="skill-pill">Stakeholder Management</span>
-                                <span class="skill-pill">Product Vision</span>
-                                <span class="skill-pill">Roadmap Strategy</span>
-                                <span class="skill-pill">Release Planning</span>
+                                <template x-for="skill in t().skillsProduct" :key="skill">
+                                    <span class="skill-pill" x-text="skill"></span>
+                                </template>
                             </div>
                         </div>
                         
                         <!-- Business Analysis -->
                         <div>
-                            <h4 class="font-display font-semibold mb-4 flex items-center text-primary-soft">
+                            <h4 class="font-display font-semibold mb-4 flex items-center text-soft">
                                 <i class="fas fa-sitemap text-primary mr-2"></i>
-                                <span x-text="t.catBA">Business Analysis</span>
+                                <span x-text="t().catBA">Business Analysis</span>
                             </h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="skill-pill">SRS Documentation</span>
-                                <span class="skill-pill">BRD Writing</span>
-                                <span class="skill-pill">UML Diagramming</span>
-                                <span class="skill-pill">Workflow Optimization</span>
-                                <span class="skill-pill">Gap Analysis</span>
-                                <span class="skill-pill">Requirements Elicitation</span>
+                                <template x-for="skill in t().skillsBA" :key="skill">
+                                    <span class="skill-pill" x-text="skill"></span>
+                                </template>
                             </div>
                         </div>
                         
                         <!-- Tools & Tech -->
                         <div>
-                            <h4 class="font-display font-semibold mb-4 flex items-center text-primary-soft">
+                            <h4 class="font-display font-semibold mb-4 flex items-center text-soft">
                                 <i class="fas fa-tools text-primary mr-2"></i>
-                                <span x-text="t.catTools">Tools & Tech</span>
+                                <span x-text="t().catTools">Tools & Tech</span>
                             </h4>
                             <div class="flex flex-wrap gap-2">
-                                <span class="skill-pill">Jira & Confluence</span>
-                                <span class="skill-pill">Figma</span>
-                                <span class="skill-pill">Postman / API</span>
-                                <span class="skill-pill">SQL & Data Analysis</span>
-                                <span class="skill-pill">Git & GitHub</span>
-                                <span class="skill-pill">Spatial UI Concepts</span>
+                                <template x-for="skill in t().skillsTools" :key="skill">
+                                    <span class="skill-pill" x-text="skill"></span>
+                                </template>
                             </div>
                         </div>
                         
@@ -687,48 +781,47 @@
                 </div>
             </div>
         </section>
-        
-        <!-- SECTION 4: CONTACT & FOOTER -->
+
+        <!-- FOOTER / CONTACT -->
         <section class="px-6 md:px-12 lg:px-20 py-16" id="contact">
             <div class="max-w-7xl mx-auto">
-                <div class="glass-card sheen p-10" data-aos="fade-up">
+                <div class="glass-card p-10" data-aos="fade-up">
                     <div class="grid md:grid-cols-2 gap-10 items-center">
                         
-                        <!-- Left: Contact Info -->
+                        <!-- Contact Info -->
                         <div>
-                            <h3 class="font-display font-bold text-2xl mb-6" x-text="t.contactTitle">Liên hệ</h3>
+                            <h3 class="font-display font-bold text-2xl mb-6" x-text="t().contactTitle">Get in Touch</h3>
                             <div class="flex space-x-4 mb-8">
-                                <a href="#" class="contact-icon">
+                                <a href="#" class="contact-icon" aria-label="LinkedIn">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
-                                <a href="#" class="contact-icon">
+                                <a href="#" class="contact-icon" aria-label="GitHub">
                                     <i class="fab fa-github"></i>
                                 </a>
-                                <a href="mailto:nguyenhoaigiabao.bt@gmail.com" class="contact-icon">
+                                <a href="mailto:nguyenhoaigiabao.bt@gmail.com" class="contact-icon" aria-label="Email">
                                     <i class="fas fa-envelope"></i>
                                 </a>
                             </div>
                             <div class="space-y-3 text-sm">
-                                <p class="text-primary-soft flex items-center">
+                                <p class="text-soft flex items-center">
                                     <i class="fas fa-phone mr-3 text-primary/60 w-4"></i>
                                     0387 227 939
                                 </p>
-                                <p class="text-primary-soft flex items-center">
+                                <p class="text-soft flex items-center">
                                     <i class="fas fa-map-marker-alt mr-3 text-primary/60 w-4"></i>
-                                    <span x-text="t.location">TP. Hồ Chí Minh, Việt Nam</span>
+                                    <span x-text="t().location">Ho Chi Minh City, Vietnam</span>
                                 </p>
                             </div>
                         </div>
                         
-                        <!-- Right: CTA -->
+                        <!-- CTA -->
                         <div class="flex flex-col items-start md:items-end">
-                            <p class="text-secondary-soft text-sm mb-6 text-left md:text-right max-w-xs" 
-                               x-text="t.ctaDesc">
-                                Tải xuống CV để xem chi tiết kinh nghiệm và dự án đã thực hiện
+                            <p class="text-muted text-sm mb-6 text-left md:text-right max-w-xs" x-text="t().ctaDesc">
+                                Download CV for detailed experience and projects overview
                             </p>
-                            <a href="#" class="cta-btn px-8 py-4 rounded-full flex items-center space-x-3">
+                            <a href="#" class="cta-btn px-8 py-4 rounded-full">
                                 <i class="fas fa-download"></i>
-                                <span x-text="t.downloadCV">Download CV</span>
+                                <span x-text="t().downloadCV">Download CV</span>
                             </a>
                         </div>
                         
@@ -736,11 +829,11 @@
                     
                     <!-- Footer Bottom -->
                     <div class="mt-10 pt-6 border-t border-current border-opacity-10 flex flex-col md:flex-row justify-between items-center">
-                        <p class="text-secondary-soft text-xs">
-                            &copy; 2026 <span x-text="t.name">Nguyễn Hoài Gia Bảo</span>. 
-                            <span x-text="t.roleShort">Acting PO</span>.
+                        <p class="text-muted text-xs">
+                            &copy; 2026 <span x-text="t().name">Nguyen Hoai Gia Bao</span>. 
+                            <span x-text="t().roleShort">Acting PO</span>.
                         </p>
-                        <p class="text-secondary-soft text-xs mt-2 md:mt-0">
+                        <p class="text-muted text-xs mt-2 md:mt-0">
                             Sea Dragon Technology Co., Ltd
                         </p>
                     </div>
@@ -757,7 +850,7 @@
                 title: 'Nguyễn Hoài Gia Bảo | Acting Product Owner',
                 brandName: 'Bảo',
                 role: 'Quyền Quản lý Sản phẩm',
-                heroGreeting: 'Chào bạn!<br>Tôi là <span class="gradient-text">Quyền PO</span>',
+                heroGreeting: 'Chào bạn! Tôi là<br><span class="gradient-text">Quyền PO</span>',
                 heroDesc: '1 năm kinh nghiệm dẫn dắt đội ngũ và quản lý tầm nhìn sản phẩm tại Sea Dragon Technology',
                 contactBtn: 'Liên hệ',
                 cvBtn: 'Tải CV',
@@ -765,25 +858,27 @@
                 roleIntern: 'Thực tập sinh IT',
                 roleBA: 'Trưởng nhóm BA',
                 rolePO: 'Quyền Quản lý Sản phẩm',
-                achievementTeam: 'Dẫn dắt đội ngũ 4 người',
-                achievementVision: 'Tầm nhìn HRM 2.0',
-                achievementRework: 'giảm rework',
-                company: 'Sea Dragon Technology | Giữa 2025 - Hiện tại',
-                methodologyTitle: 'Phương pháp làm việc',
+                metricTeam: 'Thành viên nhóm',
+                metricVision: 'Tầm nhìn sản phẩm',
+                metricRework: 'Giảm rework',
+                methodologyTitle: 'Tư Duy & Phương Pháp Sản Phẩm',
                 methodologySubtitle: 'Quy trình thực chiến từ ý tưởng đến sản phẩm',
                 discoveryTitle: 'Khám phá & Chiến lược',
-                discoveryDesc: 'Phân tích nhu cầu người dùng, nghiên cứu thị trường, xác định pain points và cơ hội.',
-                backlogTitle: 'Quản lý tồn đọng',
-                backlogDesc: 'Quản lý Product Backlog, viết User Stories, phân tích Acceptance Criteria, ưu tiên theo giá trị.',
+                discoveryDesc: 'Khai thác dữ liệu & ý kiến để ra quyết định. Phân tích nhu cầu, nghiên cứu thị trường.',
+                backlogTitle: 'Quản lý tồn đọng & Ưu tiên',
+                backlogDesc: 'Quản lý Backlog dựa trên giá trị kinh doanh. User Stories và sprint optimization.',
                 roadmapTitle: 'Lộ trình & Tầm nhìn',
-                roadmapDesc: 'Xây dựng lộ trình sản phẩm, định nghĩa tầm nhìn chiến lược, milestones và OKRs.',
+                roadmapDesc: 'Lập kế hoạch dài hạn, phát triển bền vững. Roadmap và milestones rõ ràng.',
                 dataTitle: 'Quyết định dựa trên dữ liệu',
-                dataDesc: 'Phân tích metrics, đo lường hiệu quả, đưa ra quyết định dựa trên dữ liệu thực tế.',
+                dataDesc: 'Đánh giá hiệu suất & tối ưu chuyển đổi. Metrics và conversion optimization.',
                 skillsTitle: 'Kho vũ khí kỹ năng',
                 skillsSubtitle: 'Không có percentage, chỉ có chuyên môn thực chiến',
                 catProduct: 'Chiến lược Sản phẩm',
                 catBA: 'Phân tích Kinh doanh',
                 catTools: 'Công cụ & Công nghệ',
+                skillsProduct: ['Agile/Scrum', 'Backlog Management', 'Sprint Planning', 'Stakeholder Comm', 'Product Vision', 'Release Planning'],
+                skillsBA: ['SRS/BRD', 'Workflow Optimization', 'UML Diagramming', 'System Architecture', 'Gap Analysis', 'Requirements'],
+                skillsTools: ['Jira', 'Confluence', 'Figma', 'Postman', 'SQL', 'Git/GitHub'],
                 contactTitle: 'Liên hệ',
                 location: 'TP. Hồ Chí Minh, Việt Nam',
                 ctaDesc: 'Tải xuống CV để xem chi tiết kinh nghiệm và dự án đã thực hiện',
@@ -800,7 +895,7 @@
                 title: 'Nguyen Hoai Gia Bao | Acting Product Owner',
                 brandName: 'Bao',
                 role: 'Acting Product Owner',
-                heroGreeting: 'Hello!<br>I am an <span class="gradient-text">Acting PO</span>',
+                heroGreeting: 'Hello! I am an<br><span class="gradient-text">Acting PO</span>',
                 heroDesc: '1 year experience leading teams and managing product vision at Sea Dragon Technology',
                 contactBtn: 'Contact Me',
                 cvBtn: 'Download CV',
@@ -808,25 +903,27 @@
                 roleIntern: 'IT Intern',
                 roleBA: 'Lead Business Analyst',
                 rolePO: 'Acting Product Owner',
-                achievementTeam: 'Lead team of 4',
-                achievementVision: 'HRM 2.0 Vision',
-                achievementRework: 'rework reduction',
-                company: 'Sea Dragon Technology | Mid 2025 - Present',
-                methodologyTitle: 'Strategic Methodology',
+                metricTeam: 'Team Members',
+                metricVision: 'Product Vision',
+                metricRework: 'Rework Reduction',
+                methodologyTitle: 'Product Thought & Method',
                 methodologySubtitle: 'End-to-end product process from ideation to delivery',
                 discoveryTitle: 'Discovery & Strategy',
-                discoveryDesc: 'User needs analysis, market research, pain points identification and opportunity mapping.',
-                backlogTitle: 'Backlog & Priority',
-                backlogDesc: 'Product Backlog management, User Stories, Acceptance Criteria, value-based prioritization.',
+                discoveryDesc: 'Data-driven ideation & strategic alignment. User research and market analysis.',
+                backlogTitle: 'Backlog & Prioritization',
+                backlogDesc: 'Value-based backlog management & sprint optimization. User Stories and Agile.',
                 roadmapTitle: 'Roadmap & Vision',
-                roadmapDesc: 'Product roadmap development, strategic vision definition, milestones and OKRs.',
-                dataTitle: 'Data-Driven Decisions',
-                dataDesc: 'Metrics analysis, effectiveness measurement, making decisions based on real data.',
+                roadmapDesc: 'Long-term planning & sustainable feature delivery. Clear milestones and OKRs.',
+                dataTitle: 'Data-Driven Analytics',
+                dataDesc: 'Performance tracking & conversion optimization. Metrics-driven decision making.',
                 skillsTitle: 'Skill Arsenal',
                 skillsSubtitle: 'No percentages, only battle-tested expertise',
                 catProduct: 'Product Strategy',
                 catBA: 'Business Analysis',
                 catTools: 'Tools & Tech',
+                skillsProduct: ['Agile/Scrum', 'Backlog Management', 'Sprint Planning', 'Stakeholder Comm', 'Product Vision', 'Release Planning'],
+                skillsBA: ['SRS/BRD', 'Workflow Optimization', 'UML Diagramming', 'System Architecture', 'Gap Analysis', 'Requirements'],
+                skillsTools: ['Jira', 'Confluence', 'Figma', 'Postman', 'SQL', 'Git/GitHub'],
                 contactTitle: 'Get in Touch',
                 location: 'Ho Chi Minh City, Vietnam',
                 ctaDesc: 'Download CV for detailed experience and projects overview',
@@ -844,18 +941,18 @@
         // Alpine.js App
         function portfolioApp() {
             return {
-                lang: 'vie',
-                isDark: true,
+                currentLang: 'vie',
+                darkMode: true,
+                typingInterval: null,
                 
-                get t() {
-                    return translations[this.lang];
+                // Use method instead of getter for reactivity
+                t() {
+                    return translations[this.currentLang];
                 },
                 
                 init() {
-                    // Check system preference for dark mode
-                    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-                        this.isDark = false;
-                    }
+                    // Load saved preferences
+                    this.loadPreferences();
                     
                     // Initialize AOS
                     AOS.init({
@@ -866,36 +963,85 @@
                     });
                     
                     // Start typing effect
-                    this.initTyping();
+                    this.$nextTick(() => {
+                        this.startTyping();
+                    });
+                },
+                
+                loadPreferences() {
+                    try {
+                        const savedLang = localStorage.getItem('portfolio-lang');
+                        const savedTheme = localStorage.getItem('portfolio-theme');
+                        
+                        if (savedLang && translations[savedLang]) {
+                            this.currentLang = savedLang;
+                        }
+                        
+                        if (savedTheme !== null) {
+                            this.darkMode = savedTheme === 'dark';
+                        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+                            this.darkMode = false;
+                        }
+                    } catch (e) {
+                        console.log('LocalStorage not available');
+                    }
+                },
+                
+                savePreferences() {
+                    try {
+                        localStorage.setItem('portfolio-lang', this.currentLang);
+                        localStorage.setItem('portfolio-theme', this.darkMode ? 'dark' : 'light');
+                    } catch (e) {
+                        console.log('LocalStorage not available');
+                    }
                 },
                 
                 toggleTheme() {
-                    this.isDark = !this.isDark;
+                    this.darkMode = !this.darkMode;
+                    this.savePreferences();
                 },
                 
                 setLang(language) {
-                    this.lang = language;
-                    // Refresh typing animation
-                    setTimeout(() => this.initTyping(), 100);
+                    if (this.currentLang === language) return;
+                    
+                    this.currentLang = language;
+                    this.savePreferences();
+                    
+                    // Restart typing with new language
+                    this.stopTyping();
+                    this.$nextTick(() => {
+                        this.startTyping();
+                    });
                 },
                 
-                initTyping() {
+                stopTyping() {
+                    if (this.typingTimeout) {
+                        clearTimeout(this.typingTimeout);
+                        this.typingTimeout = null;
+                    }
+                },
+                
+                startTyping() {
                     const el = document.getElementById('typing-text');
                     if (!el) return;
                     
                     let textIndex = 0;
                     let charIndex = 0;
                     let isDeleting = false;
-                    const texts = this.t.typingTexts || translations.vie.typingTexts;
+                    const texts = this.t().typingTexts;
                     
                     const type = () => {
+                        // Check if element still exists and language hasn't changed
+                        const currentEl = document.getElementById('typing-text');
+                        if (!currentEl) return;
+                        
                         const currentText = texts[textIndex];
                         
                         if (isDeleting) {
-                            el.textContent = currentText.substring(0, charIndex - 1);
+                            currentEl.textContent = currentText.substring(0, charIndex - 1);
                             charIndex--;
                         } else {
-                            el.textContent = currentText.substring(0, charIndex + 1);
+                            currentEl.textContent = currentText.substring(0, charIndex + 1);
                             charIndex++;
                         }
                         
@@ -910,28 +1056,14 @@
                             speed = 500;
                         }
                         
-                        setTimeout(type, speed);
+                        this.typingTimeout = setTimeout(type, speed);
                     };
                     
-                    // Clear and restart
                     el.textContent = '';
-                    setTimeout(type, 500);
+                    this.typingTimeout = setTimeout(type, 300);
                 }
             };
         }
     </script>
-    
-    <style>
-        /* Typing cursor animation */
-        .typing-cursor {
-            animation: blink 1s infinite;
-            color: #007bff;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-    </style>
 </body>
 </html>
